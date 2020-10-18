@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'tour',
     loadChildren: () => import('./pages/tour/tour.module').then( m => m.TourPageModule)
   },
+  {
+    path: 'categories',
+    loadChildren: () => import('./pages/categories/categories.module').then( m => m.CategoriesPageModule)
+  },
 ];
 
 @NgModule({

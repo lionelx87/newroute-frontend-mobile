@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   app: 'NewRoute',
-  version: 'v0.9'
+  version: 'v0.9',
+  backend: 'http://newroute.backend/api',
 };
 
 /*

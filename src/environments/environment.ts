@@ -7,6 +7,9 @@ export const environment = {
   app: 'NewRoute',
   version: 'v0.9',
   backend: 'http://newroute.backend/api',
+  endpoints: {
+    categories: '/categories'
+  }
 };
 
 /*

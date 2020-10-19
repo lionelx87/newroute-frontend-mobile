@@ -6,9 +6,10 @@ export const environment = {
   production: false,
   app: 'NewRoute',
   version: 'v0.9',
+  server: 'http://newroute.backend',
   backend: 'http://newroute.backend/api',
   endpoints: {
-    categories: '/categories'
+    categories: '/categories',
   }
 };
 

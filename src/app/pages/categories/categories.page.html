@@ -6,7 +6,7 @@
     <ion-row>
       <ion-col *ngFor="let category of categories | async" size="6" size-md="4" size-lg="3">
         
-        <ion-card button="true">
+        <ion-card button="true" [routerLink]="[category.id]">
           <ion-card-header>
             <ion-card-title class="ion-text-capitalize">{{ category.name }}</ion-card-title>
             <ion-card-subtitle>{{ category.description }}</ion-card-subtitle>

@@ -1,16 +1,25 @@
 <app-header title="prueba"></app-header>
 
-<ion-content>
+<ion-content class="ion-padding">  
 
-  <ion-list>
-    <ion-item *ngFor="let spot of spots | async">
-      <ion-label>
-        <ion-img [src]="spot.images[0] | composeUrl"></ion-img>
-      </ion-label>
-      <ion-label slot="end" class="ion-text-right">
-        <h2>{{ spot.name }}</h2>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col *ngFor="let spot of spots | async" size="12" size-md="6" size-lg="4">
+        
+        <ion-card button="true"  >
+          <img [src]="spot.images[0] | composeUrl" alt="">
+          <ion-card-header>
+            <ion-card-subtitle>Categoría</ion-card-subtitle>
+            <ion-card-title>{{ spot.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{ spot.description }}
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 
 </ion-content>

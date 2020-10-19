@@ -6,7 +6,7 @@
     <ion-row>
       <ion-col *ngFor="let spot of spots | async" size="12" size-md="6" size-lg="4">
         
-        <ion-card button="true"  >
+        <ion-card button="true" (click)="openSpot(spot)" >
           <img [src]="spot.images[0] | composeUrl" alt="">
           <ion-card-header>
             <ion-card-subtitle>Categoría</ion-card-subtitle>

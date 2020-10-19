@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'categories',
     loadChildren: () => import('./pages/categories/categories.module').then( m => m.CategoriesPageModule)
   },
+  {
+    path: 'spot',
+    loadChildren: () => import('./pages/spot/spot.module').then( m => m.SpotPageModule)
+  },
 ];
 
 @NgModule({

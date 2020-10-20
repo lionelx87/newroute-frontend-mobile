@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../../services/storage.service';
+import { Spot } from '../../interfaces/spot.interface';
 
 @Component({
   selector: 'app-tour',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TourPage implements OnInit {
 
-  constructor() { }
+  spots: Spot[];
+
+  constructor( private storage: StorageService ) { }
 
   ngOnInit() {
+    this.getSpots();
+  }
+
+  async getSpots() {
+   this.spots = await this.storage.all();
   }
 
 }

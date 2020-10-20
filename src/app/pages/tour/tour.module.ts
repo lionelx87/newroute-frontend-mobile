@@ -8,6 +8,7 @@ import { TourPageRoutingModule } from './tour-routing.module';
 
 import { TourPage } from './tour.page';
 import { ComponentsModule } from '../../components/components.module';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     ComponentsModule,
+    PipesModule,
     TourPageRoutingModule
   ],
   declarations: [TourPage]

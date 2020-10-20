@@ -6,4 +6,8 @@ export interface Spot {
     latitude: string;
     longitude: string;
     images: string[];
+    priority?: {
+        name: string,
+        value: number
+    }
 }

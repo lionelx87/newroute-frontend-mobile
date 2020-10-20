@@ -2,6 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Spot } from '../../interfaces/spot.interface';
 
+import { StorageService } from '../../services/storage.service';
+
+
 @Component({
   selector: 'app-spot',
   templateUrl: './spot.page.html',
@@ -11,19 +14,18 @@ export class SpotPage implements OnInit {
 
   @Input() spot: Spot;
 
-  constructor( private modalCtrl: ModalController ) { }
+  constructor( private modalCtrl: ModalController,
+               private storage: StorageService) { }
 
   ngOnInit() {
-    console.log(this.spot);
   }
 
   close(): void {
     this.modalCtrl.dismiss();
   }
 
-  addTour() {
-    // Agreagr al Storage
-    console.log(this.spot);
+  addToTour() {
+    this.storage.store(this.spot);
   }
 
 }

@@ -12,9 +12,6 @@
                     <ion-col size="12">
                         <ion-label>{{ spot.name }}</ion-label>
                     </ion-col>
-                    <!-- <ion-col size="2">
-                        <ion-label class="ion-text-right" color="medium">{{ i + 1 }}</ion-label>
-                    </ion-col> -->
                 </ion-row>
                 <ion-row>
                     <ion-col size="6" class="ion-align-self-center">
@@ -22,7 +19,6 @@
                     </ion-col>
                     <ion-col size="6" class="ion-align-self-center">
                         <ion-label class="ion-text-right" color="medium">
-                            <!-- <ion-badge color="primary">Muy Deseable</ion-badge> -->
                             <ion-chip color="primary">
                                 <ion-icon name="time-outline"></ion-icon>
                                 <ion-label>Muy Deseable</ion-label>
@@ -35,7 +31,7 @@
     </ion-list>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button routerLink="/categories">
+        <ion-fab-button (click)="toCategories()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>

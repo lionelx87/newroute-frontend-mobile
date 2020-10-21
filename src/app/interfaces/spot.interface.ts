@@ -7,7 +7,6 @@ export interface Spot {
     longitude: string;
     images: string[];
     priority?: {
-        name: string,
         value: number
     }
 }

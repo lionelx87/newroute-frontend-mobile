@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 import { Spot } from '../interfaces/spot.interface';
+import { Priority } from '../../assets/priority';
 
 const { Storage } = Plugins;
 
@@ -30,7 +31,7 @@ export class StorageService {
   async store(spot: Spot) {
     const ret = await Storage.get({ key: spot.id.toString() });
     if(!ret.value) {
-      spot.priority = { name: 'media', value: 3 };
+      spot.priority = { value: Priority.NORMAL };
       await Storage.set({
         key: spot.id.toString(),
         value: JSON.stringify(spot)

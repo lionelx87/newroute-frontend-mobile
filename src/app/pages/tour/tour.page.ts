@@ -3,7 +3,7 @@ import { StorageService } from '../../services/storage.service';
 import { Spot } from '../../interfaces/spot.interface';
 import { Router } from '@angular/router';
 import { AlertController, IonList } from '@ionic/angular';
-import { priorityText, Priority } from '../../../assets/priority';
+import { priorityText, Priority, Mode } from '../../../assets/priority';
 
 
 @Component({
@@ -33,11 +33,11 @@ export class TourPage implements OnInit {
     this.router.navigateByUrl('/categories');
   }
 
-  async presentAlert(spot: Spot) {
+  async changePriority(spot: Spot) {
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
       header: 'Seleccione prioridad',
-      message: 'This is an alert message.',
+      message: spot.name,
       inputs: [
         {
           name: 'radio',
@@ -75,7 +75,6 @@ export class TourPage implements OnInit {
         }
       ]
     });
-
     await alert.present();
   }
 
@@ -87,6 +86,43 @@ export class TourPage implements OnInit {
     this.ionList.closeSlidingItems();
     this.storage.delete(spot);
     this.spots = this.spots.filter(s => s.id !== spot.id);
+  }
+
+  async selectMode() {
+    const alert = await this.alertCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Modo de Recorrido',
+      inputs: [
+        {
+          name: 'radio',
+          type: 'radio',
+          label: 'Por Prioridad',
+          value: Mode.BY_PRIORITY,
+          checked: true
+        },
+        {
+          name: 'radio2',
+          type: 'radio',
+          label: 'Por Proximidad',
+          value: Mode.BY_PROXIMITY,
+          checked: false
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel'
+        },
+        {
+          text: 'Comenzar',
+          handler: (value) => {
+            console.log(value);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   ionViewWillEnter() {

@@ -11,3 +11,8 @@ export function priorityText(value: number): string {
         case Priority.VERY_HIGH: return 'muy deseable';
     }
 }
+
+export const Mode = {
+    BY_PRIORITY: 1,
+    BY_PROXIMITY: 2,
+}

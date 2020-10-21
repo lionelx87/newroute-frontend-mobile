@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StorageService } from '../../services/storage.service';
 import { Spot } from '../../interfaces/spot.interface';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, IonList } from '@ionic/angular';
 import { priorityText, Priority } from '../../../assets/priority';
 
 
@@ -14,6 +14,8 @@ import { priorityText, Priority } from '../../../assets/priority';
 export class TourPage implements OnInit {
 
   spots: Spot[];
+
+  @ViewChild(IonList) ionList: IonList;
 
   constructor( private storage: StorageService,
                private router: Router,
@@ -79,6 +81,12 @@ export class TourPage implements OnInit {
 
   getPriorityText(value: number) {
     return priorityText(value);
+  }
+
+  delete(spot: Spot) {
+    this.ionList.closeSlidingItems();
+    this.storage.delete(spot);
+    this.spots = this.spots.filter(s => s.id !== spot.id);
   }
 
   ionViewWillEnter() {

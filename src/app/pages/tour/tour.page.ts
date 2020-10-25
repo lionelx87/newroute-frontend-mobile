@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { StorageService } from '../../services/storage.service';
 import { Spot } from '../../interfaces/spot.interface';
 import { Router } from '@angular/router';
-import { AlertController, IonList } from '@ionic/angular';
+import { AlertController, IonList, ModalController } from '@ionic/angular';
 import { priorityText, Priority, Mode } from '../../../assets/priority';
+import { MapPage } from '../map/map.page';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class TourPage implements OnInit {
 
   constructor( private storage: StorageService,
                private router: Router,
-               private alertCtrl: AlertController ) { }
+               private alertCtrl: AlertController,
+               private modalCtrl: ModalController ) { }
 
   ngOnInit() {
     this.getSpots();
@@ -115,8 +117,15 @@ export class TourPage implements OnInit {
         },
         {
           text: 'Comenzar',
-          handler: (value) => {
-            console.log(value);
+          handler: async (value) => {
+            const modal = await this.modalCtrl.create({
+              component: MapPage,
+              componentProps: {
+                spots: this.spots,
+                mode: value
+              }
+            });
+            return await modal.present();
           }
         }
       ]

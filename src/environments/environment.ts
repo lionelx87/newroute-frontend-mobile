@@ -10,7 +10,8 @@ export const environment = {
   backend: 'http://newroute.backend/api',
   endpoints: {
     categories: '/categories',
-  }
+  },
+  icon_person: 'https://maps.google.com/mapfiles/kml/shapes/library_maps.png'
 };
 
 /*

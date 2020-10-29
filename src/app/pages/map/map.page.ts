@@ -15,9 +15,10 @@ export class MapPage implements OnInit {
   @Input() mode: number;
 
   @ViewChild('map') mapRef: ElementRef;
+  optimizedRoute: boolean;
 
 
-  constructor( private geolocation: GeolocationService ) { }
+  constructor( private geolocation: GeolocationService ) { this.optimizedRoute = true; }
 
   ngOnInit() {
   }
@@ -33,15 +34,16 @@ export class MapPage implements OnInit {
 
     this.mode === Mode.BY_PRIORITY ? this.sortByPriority() : this.sortByProximity();
 
-    this.geolocation.renderRoute(this.spots);
+    this.geolocation.renderRoute(this.spots, this.optimizedRoute);
   }
 
   sortByPriority(): void {
     this.spots.sort( (a, b) => b.priority.value - a.priority.value );
+    this.optimizedRoute = false;
   }
 
-  sortByProximity(): void {
-    
+  sortByProximity() {
+    this.optimizedRoute = true;
   }
 
 }

@@ -13,7 +13,7 @@ declare var google;
 export class GeolocationService {
 
   mapRef: ElementRef;
-  position: object;
+  position = null;
   map = google.maps.Map;
   directionsService = new google.maps.DirectionsService();
   directionsDisplay = new google.maps.DirectionsRenderer();
@@ -55,7 +55,7 @@ export class GeolocationService {
       });
   }
 
-  renderRoute(spots: Spot[]): void {
+  renderRoute(spots: Spot[], optimizedRoute: boolean): void {
     this.directionsDisplay.setMap(this.map);
 
     const destinyNode = spots.pop();
@@ -73,7 +73,7 @@ export class GeolocationService {
       origin: this.position,
       destination: destiny,
       waypoints: wayPoints,
-      optimizeWaypoints: true,
+      optimizeWaypoints: optimizedRoute,
       travelMode: google.maps.TravelMode.DRIVING
     }, (response, status) => {
       if(status === google.maps.DirectionsStatus.OK) {

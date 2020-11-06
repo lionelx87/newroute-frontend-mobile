@@ -5,7 +5,7 @@
     </ion-buttons>
   </ion-toolbar>
   
-  <ion-segment color="primary" value="login" (ionChange)="action()">
+  <ion-segment color="primary" value="login">
     <ion-segment-button value="login">
       <ion-label>Ingreso</ion-label>
     </ion-segment-button>
@@ -63,36 +63,62 @@
         <ion-card-title>Crea tu cuenta</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-list>
 
-          <ion-item>
-            <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input autofocus required></ion-input>
-          </ion-item>
+        <form [formGroup]="formRegistry" novalidate (ngSubmit)="registerNewUser($event)">
+          <ion-list>  
+            
+              <ion-item>
+                <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text></ion-label>
+                <ion-input formControlName="name" autofocus required></ion-input>
+              </ion-item>
+              <div *ngFor="let error of errorMessages.name" class="ion-text-end">
+                <ng-container *ngIf="nameRegistry.hasError(error.type) && nameRegistry.touched">
+                  <small>{{ error.message }}</small>
+                </ng-container>
+              </div>
+    
+              <ion-item>
+                <ion-label position="floating">Correo <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input formControlName="email" inputmode="email" type="email" required></ion-input>
+              </ion-item>
+              <div *ngFor="let error of errorMessages.email" class="ion-text-end">
+                <ng-container *ngIf="emailRegistry.hasError(error.type) && emailRegistry.touched">
+                  <small>{{ error.message }}</small>
+                </ng-container>
+              </div>
+    
+              <ion-item>
+                <ion-label position="floating">Contraseña <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input formControlName="password" type="password" required></ion-input>
+              </ion-item>
+              <div *ngFor="let error of errorMessages.password" class="ion-text-end">
+                <ng-container *ngIf="passwordRegistry.hasError(error.type) && passwordRegistry.touched">
+                  <small>{{ error.message }}</small>
+                </ng-container>
+              </div>
+    
+              <ion-item>
+                <ion-label position="floating">Confirme su contraseña <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input formControlName="passwordConfirmed" type="password" required></ion-input>
+              </ion-item>
+              <div *ngFor="let error of errorMessages.passwordConfirmed" class="ion-text-end">
+                <ng-container *ngIf="passwordConfirmedRegistry.hasError(error.type) && passwordConfirmedRegistry.touched">
+                  <small>{{ error.message }}</small>
+                </ng-container>
+              </div>
 
-          <ion-item>
-            <ion-label position="floating">Correo <ion-text color="danger">*</ion-text>
-            </ion-label>
-            <ion-input inputmode="email" type="email" required></ion-input>
-          </ion-item>
+  
+          </ion-list>
+  
+          <ion-button type="submit" [disabled]="formRegistry.invalid" class="ion-margin-top" expand="full" shape="round">
+            Registrarme
+          </ion-button>
 
-          <ion-item>
-            <ion-label position="floating">Contraseña <ion-text color="danger">*</ion-text>
-            </ion-label>
-            <ion-input type="password" required></ion-input>
-          </ion-item>
+        </form>
 
-          <ion-item>
-            <ion-label position="floating">Confirme su contraseña <ion-text color="danger">*</ion-text>
-            </ion-label>
-            <ion-input type="password" required></ion-input>
-          </ion-item>
-
-        </ion-list>
-
-        <ion-button class="ion-margin-top" expand="full" shape="round">
-          Registrarme
-        </ion-button>
 
       </ion-card-content>
     </ion-card>

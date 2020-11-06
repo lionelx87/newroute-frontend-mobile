@@ -16,6 +16,90 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <ng-container *ngIf="loginSelected">
+
+    <ion-card>
+      <ion-card-header color="primary">
+        <ion-card-subtitle>Tu ruta virtual a Caleta Olivia</ion-card-subtitle>
+        <ion-card-title>New Route</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+    
+          <ion-item>
+            <ion-label position="floating">Correo <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input autofocus inputmode="email" type="email" required></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Contraseña <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input type="password" required></ion-input>
+          </ion-item>
+    
+        </ion-list>
+        
+        <ion-button color="secondary" size="small" fill="clear">
+          ¿Olvidó su contraseña?
+        </ion-button>
+    
+        <ion-button class="ion-margin-top" expand="full" shape="round">
+          Ingresar
+        </ion-button>
+    
+      </ion-card-content>
+    </ion-card>
+
+  </ng-container>
+
+  <ng-container *ngIf="registrySelected">
+
+    <ion-card>
+      <ion-card-header  color="primary">
+        <ion-card-subtitle>Forma parte de la comunidad Caletense</ion-card-subtitle>
+        <ion-card-title>Crea tu cuenta</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+
+          <ion-item>
+            <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input autofocus required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Correo <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input inputmode="email" type="email" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Contraseña <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input type="password" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Confirme su contraseña <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input type="password" required></ion-input>
+          </ion-item>
+
+        </ion-list>
+
+        <ion-button class="ion-margin-top" expand="full" shape="round">
+          Registrarme
+        </ion-button>
+
+      </ion-card-content>
+    </ion-card>
+
+  </ng-container>
+
+  
+  
 
 </ion-content>

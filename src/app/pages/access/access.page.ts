@@ -10,13 +10,25 @@ export class AccessPage implements OnInit {
 
   @ViewChild(IonSegment) ionSegment: IonSegment;
 
-  constructor() { }
+  constructor() {  }
+
+  get loginSelected() {
+    if(this.ionSegment) {
+      return this.ionSegment.value === 'login';
+    }
+  }
+
+  get registrySelected() {
+    if(this.ionSegment) {
+      return this.ionSegment.value === 'registry';
+    }
+  }
 
   ngOnInit() {
   }
 
   action() {
-    console.log(this.ionSegment.value);
+    
   }
 
 }

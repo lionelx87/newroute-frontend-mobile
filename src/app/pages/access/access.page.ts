@@ -2,6 +2,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonSegment } from '@ionic/angular';
+import { CustomValidationService } from '../../services/custom-validation.service';
 
 @Component({
   selector: 'app-access',
@@ -15,13 +16,16 @@ export class AccessPage implements OnInit {
   formRegistry: FormGroup;
   formLogin: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { this.buildFormRegistry(); }
+  constructor(
+    private formBuilder: FormBuilder,
+    private customValidator: CustomValidationService
+  ) { this.buildFormRegistry(); }
 
   errorMessages = {
-    name: [ 
+    name: [
       { type: 'required', message: 'El campo es requerido' }
     ],
-    email: [ 
+    email: [
       { type: 'required', message: 'El campo es requerido' },
       { type: 'email', message: 'Debe ser un correo válido' },
     ],
@@ -32,6 +36,7 @@ export class AccessPage implements OnInit {
     passwordConfirmed: [
       { type: 'required', message: 'El campo es requerido' },
       { type: 'minlength', message: 'Debe poseer mínimo 8 caracteres' },
+      { type: 'passwordMismatch', message: 'Las contraseñas no coinciden' },
     ]
 
   };
@@ -83,6 +88,8 @@ export class AccessPage implements OnInit {
       email: [ '', [Validators.required, Validators.email] ],
       password: [ '', [Validators.required, Validators.minLength(8)] ],
       passwordConfirmed: [ '', [Validators.required, Validators.minLength(8)] ],
+    }, {
+      validator: this.customValidator.MatchPassword('password', 'passwordConfirmed')
     });
   }
 

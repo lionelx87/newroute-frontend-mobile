@@ -73,7 +73,7 @@
               </ion-item>
               <div *ngFor="let error of errorMessages.name" class="ion-text-end">
                 <ng-container *ngIf="nameRegistry.hasError(error.type) && nameRegistry.touched">
-                  <small>{{ error.message }}</small>
+                  <small class="error-message">{{ error.message }}</small>
                 </ng-container>
               </div>
     
@@ -84,7 +84,7 @@
               </ion-item>
               <div *ngFor="let error of errorMessages.email" class="ion-text-end">
                 <ng-container *ngIf="emailRegistry.hasError(error.type) && emailRegistry.touched">
-                  <small>{{ error.message }}</small>
+                  <small class="error-message">{{ error.message }}</small>
                 </ng-container>
               </div>
     
@@ -95,7 +95,7 @@
               </ion-item>
               <div *ngFor="let error of errorMessages.password" class="ion-text-end">
                 <ng-container *ngIf="passwordRegistry.hasError(error.type) && passwordRegistry.touched">
-                  <small>{{ error.message }}</small>
+                  <small class="error-message">{{ error.message }}</small>
                 </ng-container>
               </div>
     
@@ -106,7 +106,7 @@
               </ion-item>
               <div *ngFor="let error of errorMessages.passwordConfirmed" class="ion-text-end">
                 <ng-container *ngIf="passwordConfirmedRegistry.hasError(error.type) && passwordConfirmedRegistry.touched">
-                  <small>{{ error.message }}</small>
+                  <small class="error-message">{{ error.message }}</small>
                 </ng-container>
               </div>
 

@@ -15,7 +15,7 @@ export class RegistryFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder
-  ) { 
+  ) {
     this.buildForm();
   }
 
@@ -33,8 +33,8 @@ export class RegistryFormComponent implements OnInit {
     return this.form.get('password');
   }
 
-  get passwordConfirm() {
-    return this.form.get('passwordConfirm');
+  get password_confirmation() {
+    return this.form.get('password_confirmation');
   }
 
   private buildForm(): void {
@@ -42,9 +42,9 @@ export class RegistryFormComponent implements OnInit {
       name: [ '', [Validators.required] ],
       email: [ '', [Validators.required, Validators.email] ],
       password: [ '', [Validators.required, Validators.minLength(8)] ],
-      passwordConfirm: [ '', [Validators.required, Validators.minLength(8)] ],
+      password_confirmation: [ '', [Validators.required, Validators.minLength(8)] ],
     }, {
-      validator: CustomValidations.matchPassword('password', 'passwordConfirm')
+      validator: CustomValidations.matchPassword('password', 'password_confirmation')
     });
   }
 

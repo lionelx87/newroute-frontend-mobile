@@ -10,7 +10,7 @@ export const errors =  {
       { type: 'required', message: 'El campo es requerido' },
       { type: 'minlength', message: 'Debe poseer mínimo 8 caracteres' },
     ],
-    passwordConfirm: [
+    password_confirmation: [
       { type: 'required', message: 'El campo es requerido' },
       { type: 'minlength', message: 'Debe poseer mínimo 8 caracteres' },
       { type: 'passwordMismatch', message: 'Las contraseñas no coinciden' },

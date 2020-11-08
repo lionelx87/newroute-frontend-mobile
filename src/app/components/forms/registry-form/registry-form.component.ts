@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CustomValidationService } from '../../../services/custom-validation.service';
+import { CustomValidations } from '../custom-validations.class';
+import { errors } from '../error-messages';
 
 @Component({
   selector: 'app-registry-form',
@@ -9,67 +10,48 @@ import { CustomValidationService } from '../../../services/custom-validation.ser
 })
 export class RegistryFormComponent implements OnInit {
 
-  formRegistry: FormGroup;
-
-  errorMessages = {
-    name: [
-      { type: 'required', message: 'El campo es requerido' }
-    ],
-    email: [
-      { type: 'required', message: 'El campo es requerido' },
-      { type: 'email', message: 'Debe ser un correo válido' },
-    ],
-    password: [
-      { type: 'required', message: 'El campo es requerido' },
-      { type: 'minlength', message: 'Debe poseer mínimo 8 caracteres' },
-    ],
-    passwordConfirm: [
-      { type: 'required', message: 'El campo es requerido' },
-      { type: 'minlength', message: 'Debe poseer mínimo 8 caracteres' },
-      { type: 'passwordMismatch', message: 'Las contraseñas no coinciden' },
-    ]
-  };
+  form: FormGroup;
+  errorMessages = errors;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private customValidator: CustomValidationService
+    private formBuilder: FormBuilder
   ) { 
-    this.buildFormRegistry();
+    this.buildForm();
   }
 
   ngOnInit() {}
 
-  get nameRegistry() {
-    return this.formRegistry.get('name');
+  get name() {
+    return this.form.get('name');
   }
 
-  get emailRegistry() {
-    return this.formRegistry.get('email');
+  get email() {
+    return this.form.get('email');
   }
 
-  get passwordRegistry() {
-    return this.formRegistry.get('password');
+  get password() {
+    return this.form.get('password');
   }
 
-  get passwordConfirmRegistry() {
-    return this.formRegistry.get('passwordConfirm');
+  get passwordConfirm() {
+    return this.form.get('passwordConfirm');
   }
 
-  private buildFormRegistry(): void {
-    this.formRegistry = this.formBuilder.group({
+  private buildForm(): void {
+    this.form = this.formBuilder.group({
       name: [ '', [Validators.required] ],
       email: [ '', [Validators.required, Validators.email] ],
       password: [ '', [Validators.required, Validators.minLength(8)] ],
       passwordConfirm: [ '', [Validators.required, Validators.minLength(8)] ],
     }, {
-      validator: this.customValidator.MatchPassword('password', 'passwordConfirm')
+      validator: CustomValidations.matchPassword('password', 'passwordConfirm')
     });
   }
 
   registerNewUser(event: Event) {
     event.preventDefault();
-    if(this.formRegistry.valid) {
-      console.log(this.formRegistry.value);
+    if(this.form.valid) {
+      console.log(this.form.value);
     }
   }
 

@@ -5,7 +5,7 @@
   </ion-card-header>
   <ion-card-content>
 
-    <form [formGroup]="formRegistry" novalidate (ngSubmit)="registerNewUser($event)">
+    <form [formGroup]="form" novalidate (ngSubmit)="registerNewUser($event)">
       <ion-list>
 
         <!-- NAME -->
@@ -15,7 +15,7 @@
           <ion-input formControlName="name" autofocus required></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.name" class="ion-text-end">
-          <ng-container *ngIf="nameRegistry.hasError(error.type) && nameRegistry.touched">
+          <ng-container *ngIf="name.hasError(error.type) && name.touched">
             <small class="error-message">{{ error.message }}</small>
           </ng-container>
         </div>
@@ -27,7 +27,7 @@
           <ion-input formControlName="email" inputmode="email" type="email" required></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.email" class="ion-text-end">
-          <ng-container *ngIf="emailRegistry.hasError(error.type) && emailRegistry.touched">
+          <ng-container *ngIf="email.hasError(error.type) && email.touched">
             <small class="error-message">{{ error.message }}</small>
           </ng-container>
         </div>
@@ -39,7 +39,7 @@
           <ion-input formControlName="password" type="password" required></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.password" class="ion-text-end">
-          <ng-container *ngIf="passwordRegistry.hasError(error.type) && passwordRegistry.touched">
+          <ng-container *ngIf="password.hasError(error.type) && password.touched">
             <small class="error-message">{{ error.message }}</small>
           </ng-container>
         </div>
@@ -51,7 +51,7 @@
           <ion-input formControlName="passwordConfirm" type="password" required></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.passwordConfirm" class="ion-text-end">
-          <ng-container *ngIf="passwordConfirmRegistry.hasError(error.type) && passwordConfirmRegistry.touched">
+          <ng-container *ngIf="passwordConfirm.hasError(error.type) && passwordConfirm.touched">
             <small class="error-message">{{ error.message }}</small>
           </ng-container>
         </div>
@@ -59,7 +59,7 @@
       </ion-list>
 
       <!-- SUBMIT -->
-      <ion-button type="submit" [disabled]="formRegistry.invalid" class="ion-margin-top" expand="full" shape="round">
+      <ion-button type="submit" [disabled]="form.invalid" class="ion-margin-top" expand="full" shape="round">
         Registrarme
       </ion-button>
 

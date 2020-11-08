@@ -1,0 +1,70 @@
+<ion-card>
+  <ion-card-header color="primary">
+    <ion-card-subtitle>Forma parte de la comunidad Caletense</ion-card-subtitle>
+    <ion-card-title>Crea tu cuenta</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+
+    <form [formGroup]="formRegistry" novalidate (ngSubmit)="registerNewUser($event)">
+      <ion-list>
+
+        <!-- NAME -->
+        <ion-item>
+          <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="name" autofocus required></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.name" class="ion-text-end">
+          <ng-container *ngIf="nameRegistry.hasError(error.type) && nameRegistry.touched">
+            <small class="error-message">{{ error.message }}</small>
+          </ng-container>
+        </div>
+
+        <!-- EMAIL -->
+        <ion-item>
+          <ion-label position="floating">Correo <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="email" inputmode="email" type="email" required></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.email" class="ion-text-end">
+          <ng-container *ngIf="emailRegistry.hasError(error.type) && emailRegistry.touched">
+            <small class="error-message">{{ error.message }}</small>
+          </ng-container>
+        </div>
+
+        <!-- PASSWORD -->
+        <ion-item>
+          <ion-label position="floating">Contraseña <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="password" type="password" required></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.password" class="ion-text-end">
+          <ng-container *ngIf="passwordRegistry.hasError(error.type) && passwordRegistry.touched">
+            <small class="error-message">{{ error.message }}</small>
+          </ng-container>
+        </div>
+
+        <!-- CONFIRM PASSWORD -->
+        <ion-item>
+          <ion-label position="floating">Confirme su contraseña <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="passwordConfirm" type="password" required></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.passwordConfirm" class="ion-text-end">
+          <ng-container *ngIf="passwordConfirmRegistry.hasError(error.type) && passwordConfirmRegistry.touched">
+            <small class="error-message">{{ error.message }}</small>
+          </ng-container>
+        </div>
+
+      </ion-list>
+
+      <!-- SUBMIT -->
+      <ion-button type="submit" [disabled]="formRegistry.invalid" class="ion-margin-top" expand="full" shape="round">
+        Registrarme
+      </ion-button>
+
+    </form>
+
+
+  </ion-card-content>
+</ion-card>

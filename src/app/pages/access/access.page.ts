@@ -1,8 +1,6 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { IonSegment } from '@ionic/angular';
-import { CustomValidationService } from '../../services/custom-validation.service';
 
 @Component({
   selector: 'app-access',
@@ -12,40 +10,15 @@ import { CustomValidationService } from '../../services/custom-validation.servic
 export class AccessPage implements OnInit {
 
   @ViewChild(IonSegment) ionSegment: IonSegment;
-
-  formRegistry: FormGroup;
   formLogin: FormGroup;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private customValidator: CustomValidationService
-  ) { this.buildFormRegistry(); }
-
-  errorMessages = {
-    name: [
-      { type: 'required', message: 'El campo es requerido' }
-    ],
-    email: [
-      { type: 'required', message: 'El campo es requerido' },
-      { type: 'email', message: 'Debe ser un correo válido' },
-    ],
-    password: [
-      { type: 'required', message: 'El campo es requerido' },
-      { type: 'minlength', message: 'Debe poseer mínimo 8 caracteres' },
-    ],
-    passwordConfirmed: [
-      { type: 'required', message: 'El campo es requerido' },
-      { type: 'minlength', message: 'Debe poseer mínimo 8 caracteres' },
-      { type: 'passwordMismatch', message: 'Las contraseñas no coinciden' },
-    ]
-
-  };
+  constructor( ) {  }
 
   ngOnInit() {
   }
 
   get loginSelected() {
-    if(this.ionSegment) {
+    if (this.ionSegment) {
       return this.ionSegment.value === 'login';
     }
   }
@@ -54,23 +27,6 @@ export class AccessPage implements OnInit {
     if(this.ionSegment) {
       return this.ionSegment.value === 'registry';
     }
-  }
-
-  // Registry
-  get nameRegistry() {
-    return this.formRegistry.get('name');
-  }
-
-  get emailRegistry() {
-    return this.formRegistry.get('email');
-  }
-
-  get passwordRegistry() {
-    return this.formRegistry.get('password');
-  }
-
-  get passwordConfirmedRegistry() {
-    return this.formRegistry.get('passwordConfirmed');
   }
 
   // Login
@@ -82,25 +38,7 @@ export class AccessPage implements OnInit {
     return this.formLogin.get('password');
   }
 
-  private buildFormRegistry(): void {
-    this.formRegistry = this.formBuilder.group({
-      name: [ '', [Validators.required] ],
-      email: [ '', [Validators.required, Validators.email] ],
-      password: [ '', [Validators.required, Validators.minLength(8)] ],
-      passwordConfirmed: [ '', [Validators.required, Validators.minLength(8)] ],
-    }, {
-      validator: this.customValidator.MatchPassword('password', 'passwordConfirmed')
-    });
-  }
-
   private buildFormLogin(): void { }
-
-  registerNewUser(event: Event) {
-    event.preventDefault();
-    if(this.formRegistry.valid) {
-      console.log(this.formRegistry.value);
-    }
-  }
 
   loginUser() {}
 

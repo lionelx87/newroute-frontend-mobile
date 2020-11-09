@@ -56,7 +56,7 @@
   </ng-container>
 
   <ng-container *ngIf="registrySelected">
-    <app-registry-form></app-registry-form>
+    <app-registry-form (registered)="hasRegistered()"></app-registry-form>
   </ng-container>
 
   

@@ -42,4 +42,8 @@ export class AccessPage implements OnInit {
 
   loginUser() {}
 
+  hasRegistered() {
+    this.ionSegment.value = 'login';
+  }
+
 }

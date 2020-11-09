@@ -1,4 +1,4 @@
-<ion-card>
+<ion-card class="centered-box">
   <ion-card-header color="primary">
     <ion-card-subtitle>Forma parte de la comunidad Caletense</ion-card-subtitle>
     <ion-card-title>Crea tu cuenta</ion-card-title>
@@ -60,8 +60,13 @@
 
       <!-- SUBMIT -->
       <ion-button type="submit" [disabled]="form.invalid" class="ion-margin-top" expand="full" shape="round">
-        Registrarme
+        <span *ngIf="!loading">Registrarme</span>
+        <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
       </ion-button>
+
+      <div class="ion-text-center error-message ion-margin-top">
+        <p>{{ errorMessage }}</p>
+      </div>
 
     </form>
 

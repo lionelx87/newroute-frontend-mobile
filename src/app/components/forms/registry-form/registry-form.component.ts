@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidations } from '../custom-validations.class';
 import { errors } from '../error-messages';
+import { AuthService } from '../../../services/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-registry-form',
@@ -12,11 +14,18 @@ export class RegistryFormComponent implements OnInit {
 
   form: FormGroup;
   errorMessages = errors;
+  errorMessage: string;
+  loading: boolean;
+  @Output() registered: EventEmitter<void>;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private auth: AuthService
   ) {
     this.buildForm();
+    this.errorMessage = '';
+    this.loading = false;
+    this.registered = new EventEmitter<void>();
   }
 
   ngOnInit() {}
@@ -51,7 +60,15 @@ export class RegistryFormComponent implements OnInit {
   registerNewUser(event: Event) {
     event.preventDefault();
     if(this.form.valid) {
-      console.log(this.form.value);
+      this.errorMessage = '';
+      this.loading = true;
+      this.auth.registerNewUser(this.form.value)
+        .subscribe(resp => {
+            this.registered.emit();
+        }, (err: HttpErrorResponse) => {
+          this.errorMessage = err[Object.keys(err)[0]][0];
+          this.loading = false;
+        }, () => this.loading = false);
     }
   }
 

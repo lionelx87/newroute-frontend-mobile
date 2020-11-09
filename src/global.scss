@@ -24,3 +24,12 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.error-message {
+    color: #cc0033;
+}
+
+.centered-box {
+    top: 50%;
+    transform: translateY(-60%);
+}

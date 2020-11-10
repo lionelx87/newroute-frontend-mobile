@@ -1,3 +1,48 @@
-<p>
-  login-form works!
-</p>
+<ion-card class="centered-box">
+  <ion-card-header color="primary" class="ion-text-center">
+    <ion-card-title>New Route - Ingreso</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+
+    <form [formGroup]="form" novalidate (ngSubmit)="loginUser($event)">
+
+      <ion-list>
+  
+        <ion-item>
+          <ion-label position="floating">Correo <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="email" autofocus inputmode="email" type="email" required></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.email" class="ion-text-end">
+          <ng-container *ngIf="email.hasError(error.type) && email.touched">
+            <small class="error-message">{{ error.message }}</small>
+          </ng-container>
+        </div>
+  
+        <ion-item>
+          <ion-label position="floating">Contraseña <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="password" type="password" required></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.password" class="ion-text-end">
+          <ng-container *ngIf="password.hasError(error.type) && password.touched">
+            <small class="error-message">{{ error.message }}</small>
+          </ng-container>
+        </div>
+  
+      </ion-list>
+  
+      <ion-button color="secondary" size="small" fill="clear">
+        ¿Olvidó su contraseña?
+      </ion-button>
+  
+      <ion-button type="submit" [disabled]="form.invalid" class="ion-margin-top" expand="full" shape="round">
+        <span *ngIf="!loading">Ingresar</span>
+        <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+      </ion-button>
+
+    </form>
+
+
+  </ion-card-content>
+</ion-card>

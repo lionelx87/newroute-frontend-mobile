@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { IonSegment } from '@ionic/angular';
 
 @Component({
@@ -10,7 +9,6 @@ import { IonSegment } from '@ionic/angular';
 export class AccessPage implements OnInit {
 
   @ViewChild(IonSegment) ionSegment: IonSegment;
-  formLogin: FormGroup;
 
   constructor( ) {  }
 
@@ -28,19 +26,6 @@ export class AccessPage implements OnInit {
       return this.ionSegment.value === 'registry';
     }
   }
-
-  // Login
-  get emailLogin() {
-    return this.formLogin.get('name');
-  }
-
-  get passwordLogin() {
-    return this.formLogin.get('password');
-  }
-
-  private buildFormLogin(): void { }
-
-  loginUser() {}
 
   hasRegistered() {
     this.ionSegment.value = 'login';

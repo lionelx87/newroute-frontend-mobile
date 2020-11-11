@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <ion-segment color="primary" value="login">
+    <ion-segment-button value="login">
+      <ion-label>Ingreso</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="registry">
+      <ion-label>Registro</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ng-container *ngIf="loginSelected">    
+    <app-login-form></app-login-form>
+  </ng-container>
+
+  <ng-container *ngIf="registrySelected">
+    <app-registry-form (registered)="hasRegistered()"></app-registry-form>
+  </ng-container>
+
+  
+  
+
+</ion-content>

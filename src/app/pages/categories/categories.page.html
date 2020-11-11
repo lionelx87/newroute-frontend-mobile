@@ -3,21 +3,38 @@
 <ion-content class="ion-padding">
 
   <ion-grid>
-    <ion-row>
-      <ion-col *ngFor="let category of categories | async" size="6" size-md="4" size-lg="3">
-        
-        <ion-card button="true" [routerLink]="[category.id]">
-          <ion-card-header class="ion-text-center">
-            <ion-card-title class="ion-text-capitalize">{{ category.name }}</ion-card-title>
-            <ion-item-divider></ion-item-divider>
-          </ion-card-header>
-          <ion-card-content class="ion-text-center">
-            <ion-icon name="albums-outline" size="large"></ion-icon>
-          </ion-card-content>
+    <ion-row class="ion-justify-content-center">
 
-        </ion-card>
+      <ng-container *ngIf="categories | async; else elseTemplate">
+        <ion-col *ngFor="let category of categories | async" size="6" size-md="4" size-lg="3">
+          
+          <ion-card button="true" [routerLink]="[category.id]">
+            <ion-card-header class="ion-text-center">
+              <ion-card-title class="ion-text-capitalize">{{ category.name }}</ion-card-title>
+              <ion-item-divider></ion-item-divider>
+            </ion-card-header>
+            <ion-card-content class="ion-text-center">
+              <ion-icon name="albums-outline" size="large"></ion-icon>
+            </ion-card-content>
+  
+          </ion-card>
+  
+        </ion-col>                
+      </ng-container>
+      
+      <ng-template #elseTemplate>
+        <ion-row class="ion-justify-content-center">
+          <ion-skeleton-text animated style="width: 150px; height: 150px; margin: 10px;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 150px; height: 150px; margin: 10px;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 150px; height: 150px; margin: 10px;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 150px; height: 150px; margin: 10px;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 150px; height: 150px; margin: 10px;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 150px; height: 150px; margin: 10px;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 150px; height: 150px; margin: 10px;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 150px; height: 150px; margin: 10px;"></ion-skeleton-text>
+        </ion-row>
+      </ng-template>
 
-      </ion-col>
     </ion-row>
   </ion-grid>
 

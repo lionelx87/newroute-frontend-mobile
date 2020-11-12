@@ -8,7 +8,7 @@
       <ng-container *ngIf="categories | async; else elseTemplate">
         <ion-col *ngFor="let category of categories | async" size="6" size-md="4" size-lg="3">
           
-          <ion-card button="true" [routerLink]="[category.id]">
+          <ion-card button="true" [routerLink]="[category.id]" [queryParams]="{ category: category.name }">
             <ion-card-header class="ion-text-center">
               <ion-card-title class="ion-text-capitalize">{{ category.name }}</ion-card-title>
               <ion-item-divider></ion-item-divider>

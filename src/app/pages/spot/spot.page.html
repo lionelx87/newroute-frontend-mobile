@@ -6,14 +6,6 @@
 
 <ion-content>
 
-  <!-- <ion-button (click)="close()" expand="block" shape="round">
-    Cerrar
-  </ion-button>
-
-  <ion-button (click)="addToTour()" expand="block" shape="round">
-    Agregar a Recorrido
-  </ion-button> -->
-
   <ion-grid>
     <!-- Image -->
     <ion-row>
@@ -22,8 +14,9 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="ion-justify-content-between ion-align-items-center">
-        <span>
+    <!-- Title and Ranking -->
+    <ion-row class="ion-justify-content-between ion-align-items-center title-row">
+        <span class="title">
           {{ spot.name }}
         </span>
         <span>
@@ -31,22 +24,59 @@
         </span>      
     </ion-row>
 
+    <!-- Buttons Options -->
     <ion-row class="btn-row">
-      <ion-col *ngFor="let item of [1, 2, 3 ,4]" size="3" class="btn-box">
-        <ion-button class="btn-option">
+      <ion-col size="3" class="btn-box">
+        <ion-button class="btn-option" fill="clear" (click)="addToTour()">
+          <div>
+            <ion-icon size="large" name="add-outline"></ion-icon>
+            <span class="txt-option">Recorrido</span>
+          </div>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="3" class="btn-box">
+        <ion-button class="btn-option" fill="clear">
+          <div>
+            <ion-icon size="large" name="map-outline"></ion-icon>
+            <span class="txt-option">mapa</span>
+          </div>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="3" class="btn-box">
+        <ion-button class="btn-option" fill="clear">
+          <div>
+            <ion-icon size="large" name="images-outline"></ion-icon>
+            <span class="txt-option">galería</span>
+          </div>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="3" class="btn-box">
+        <ion-button class="btn-option" fill="clear">
           <div>
             <ion-icon size="large" name="star"></ion-icon>
-            <span class="txt-option">Boton</span>
+            <span class="txt-option">valorar</span>
           </div>
         </ion-button>
       </ion-col>
     </ion-row>
 
-    
-
-    <ion-row style="margin-top: 15px;">
+    <!-- Description -->
+    <ion-row style="margin-top: 15px;" class="description-row">
       <ion-col size="12">
         {{ spot.description }}
+      </ion-col>
+      <ion-col size="12">
+
+        <ion-list>
+          <ion-item>
+            <ion-icon name="location-outline" slot="start"></ion-icon>
+            <ion-label>{{ spot.address }}</ion-label>
+          </ion-item>
+        </ion-list>
+
       </ion-col>
     </ion-row>
 
@@ -54,12 +84,6 @@
     <ion-button (click)="close()" expand="block" shape="round">
         Cerrar
       </ion-button>
-    
-      <ion-button (click)="addToTour()" expand="block" shape="round">
-        Agregar a Recorrido
-      </ion-button>
-
-
 
 
   </ion-grid>

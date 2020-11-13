@@ -21,10 +21,6 @@ export class CategoryPage implements OnInit {
                private modalCtrl: ModalController) { }
 
   ngOnInit() {
-    // this.activatedRoute.params
-    //   .subscribe( params => {
-    //     this.spots = this.categoryService.getSpotsForCategory(params.id);
-    //   });
     this.category = this.activatedRoute.snapshot.queryParams.category;
     this.spots = this.categoryService.getSpotsForCategory(this.activatedRoute.snapshot.params.id);
   }

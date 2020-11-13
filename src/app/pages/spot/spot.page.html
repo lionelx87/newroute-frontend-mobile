@@ -4,14 +4,65 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content class="ion-padding">
+<ion-content>
 
-  <ion-button (click)="close()" expand="block" shape="round">
+  <!-- <ion-button (click)="close()" expand="block" shape="round">
     Cerrar
   </ion-button>
 
   <ion-button (click)="addToTour()" expand="block" shape="round">
     Agregar a Recorrido
-  </ion-button>
+  </ion-button> -->
+
+  <ion-grid>
+    <!-- Image -->
+    <ion-row>
+      <ion-col size="12" class="img-box">
+        <img [src]="spot.images[0] | composeUrl" [alt]="spot.name">
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+        <span>
+          {{ spot.name }}
+        </span>
+        <span>
+          <ion-icon size="large" *ngFor="let item of [1,2,3,4,5]" name="star-outline"></ion-icon>        
+        </span>      
+    </ion-row>
+
+    <ion-row class="btn-row">
+      <ion-col *ngFor="let item of [1, 2, 3 ,4]" size="3" class="btn-box">
+        <ion-button class="btn-option">
+          <div>
+            <ion-icon size="large" name="star"></ion-icon>
+            <span class="txt-option">Boton</span>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    
+
+    <ion-row style="margin-top: 15px;">
+      <ion-col size="12">
+        {{ spot.description }}
+      </ion-col>
+    </ion-row>
+
+
+    <ion-button (click)="close()" expand="block" shape="round">
+        Cerrar
+      </ion-button>
+    
+      <ion-button (click)="addToTour()" expand="block" shape="round">
+        Agregar a Recorrido
+      </ion-button>
+
+
+
+
+  </ion-grid>
 
 </ion-content>
+

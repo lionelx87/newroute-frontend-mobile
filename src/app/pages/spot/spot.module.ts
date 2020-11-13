@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { SpotPageRoutingModule } from './spot-routing.module';
 
 import { SpotPage } from './spot.page';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    PipesModule,
     SpotPageRoutingModule
   ],
   declarations: [SpotPage]

@@ -28,4 +28,6 @@ export class SpotPage implements OnInit {
     this.storage.store(this.spot);
   }
 
+  recommend() { console.log('recommend...'); }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSegment } from '@ionic/angular';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-access',
@@ -10,7 +11,7 @@ export class AccessPage implements OnInit {
 
   @ViewChild(IonSegment) ionSegment: IonSegment;
 
-  constructor( ) {  }
+  constructor( private message: MessageService ) {  }
 
   ngOnInit() {
   }
@@ -29,6 +30,7 @@ export class AccessPage implements OnInit {
 
   hasRegistered() {
     this.ionSegment.value = 'login';
+    this.message.present('Te has registrado correctamente!');
   }
 
 }

@@ -50,7 +50,7 @@ export class LoginFormComponent implements OnInit {
         .subscribe(resp => {
           console.log(resp);
         }, (err: HttpErrorResponse) => {
-          console.log(err);
+          this.errorMessage = err[Object.keys(err)[0]][0];
           this.loading = false;
         }, () => this.loading = false);
     }

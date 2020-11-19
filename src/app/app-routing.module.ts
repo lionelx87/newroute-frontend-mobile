@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   {
@@ -29,7 +30,8 @@ const routes: Routes = [
   },
   {
     path: 'access',
-    loadChildren: () => import('./pages/access/access.module').then( m => m.AccessPageModule)
+    loadChildren: () => import('./pages/access/access.module').then( m => m.AccessPageModule),
+    canActivate: [ AuthService ]
   },
 ];
 

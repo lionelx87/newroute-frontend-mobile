@@ -5,17 +5,19 @@ import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { UserRegister, UserLogin, UserAuth } from '../interfaces/user.interface';
 import { Router } from '@angular/router';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  user: UserAuth;
+  user = null;
 
-  constructor( private http: HttpClient, private router: Router) {
-    this.user = null;
-  }
+  constructor( private http: HttpClient,
+               private router: Router,
+               private storage: StorageService
+  ) { }
 
   isLogin() {
     return this.user !== null;
@@ -37,6 +39,7 @@ export class AuthService {
           (user: UserAuth) => {
             this.user = user;
             this.router.navigate(['/home']);
+            this.storage.setUser(user);
             return user;
           }
         ),

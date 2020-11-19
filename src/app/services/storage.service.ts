@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 import { Spot } from '../interfaces/spot.interface';
 import { Priority } from '../../assets/priority';
+import { UserAuth } from '../interfaces/user.interface';
+import { Observable } from 'rxjs';
 
 const { Storage } = Plugins;
 
@@ -49,5 +51,16 @@ export class StorageService {
   async delete(spot: Spot) {
     await Storage.remove({ key: spot.id.toString() });
   }
-  
+
+  async setUser(user: UserAuth) {
+    await Storage.set({
+      key: 'user',
+      value: JSON.stringify(user)
+    });
+  }
+
+  async getUser() {
+    const { value } = await Storage.get({ key: 'user' });
+    return JSON.parse(value);
+  }
 }

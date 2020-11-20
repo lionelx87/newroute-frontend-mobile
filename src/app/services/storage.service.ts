@@ -17,7 +17,8 @@ export class StorageService {
 
   async all() {
     const spots: Spot[] = [];
-    const { keys } = await Storage.keys();
+    let { keys } = await Storage.keys();
+    keys = keys.filter(key => key !== 'user');
     await keys.forEach( async key => {
       const { value } = await Storage.get({ key });
       spots.push( JSON.parse(value) );
@@ -60,12 +61,15 @@ export class StorageService {
   }
 
   getUser() {
-    // const { value } = await Storage.get({ key: 'user' });
-    // return JSON.parse(value);
 
     return new Observable( (observer) => {
-      observer.next('Algo');
-      observer.complete();
+
+      ( async () => {
+        const { value } = await Storage.get({ key: 'user' });
+        observer.next(JSON.parse(value));
+        observer.complete();
+      })();
+
     } );
 
   }

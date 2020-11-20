@@ -55,12 +55,11 @@ export class AuthService implements CanActivate{
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
       return this.storage.getUser().pipe(
-        map( resp => {
-          console.log(resp);
-          return true;
+        map( userStored => {
+          this.user = userStored;
+          return !this.isLogin();
         })
       );
-
   }
 
 }

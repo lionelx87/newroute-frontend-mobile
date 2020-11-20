@@ -40,4 +40,7 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+
+  logout() { this.auth.logout(); }
+
 }

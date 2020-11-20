@@ -73,4 +73,9 @@ export class StorageService {
     } );
 
   }
+
+  async deleteUser() {
+    await Storage.remove({ key: 'user' });
+  }
+
 }

@@ -59,6 +59,11 @@ export class AuthService implements CanActivate{
       );
   }
 
+  logout() {
+    this.storage.deleteUser();
+    this.user = null;
+  }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

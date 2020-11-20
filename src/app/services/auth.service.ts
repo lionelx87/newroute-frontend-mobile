@@ -18,7 +18,16 @@ export class AuthService implements CanActivate{
   constructor( private http: HttpClient,
                private router: Router,
                private storage: StorageService
-  ) { }
+  ) {
+    this.init();
+  }
+
+  init() {
+    this.storage.getUser()
+      .subscribe( (userAuth) => {
+        this.user = userAuth;
+      });
+  }
 
   isLogin() {
     return this.user !== null;

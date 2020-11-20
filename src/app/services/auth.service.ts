@@ -6,11 +6,12 @@ import { environment } from '../../environments/environment';
 import { UserRegister, UserLogin, UserAuth } from '../interfaces/user.interface';
 import { Router } from '@angular/router';
 import { StorageService } from './storage.service';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements CanActivate{
 
   user = null;
 
@@ -49,8 +50,17 @@ export class AuthService {
       );
   }
 
-  canActivate() {
-    return !this.isLogin();
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+
+      return this.storage.getUser().pipe(
+        map( resp => {
+          console.log(resp);
+          return true;
+        })
+      );
+
   }
 
 }

@@ -59,8 +59,14 @@ export class StorageService {
     });
   }
 
-  async getUser() {
-    const { value } = await Storage.get({ key: 'user' });
-    return JSON.parse(value);
+  getUser() {
+    // const { value } = await Storage.get({ key: 'user' });
+    // return JSON.parse(value);
+
+    return new Observable( (observer) => {
+      observer.next('Algo');
+      observer.complete();
+    } );
+
   }
 }

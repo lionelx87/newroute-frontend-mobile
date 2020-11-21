@@ -76,7 +76,7 @@
     </ion-row>
 
     <!-- Description -->
-    <ion-row style="margin-top: 15px;" class="description-row">
+    <ion-row style="margin-top: 15px;" >
       <ion-col size="12">
         {{ spot.description }}
       </ion-col>
@@ -89,7 +89,7 @@
           </ion-item>
           <ion-item>
             <ion-icon name="call-outline" slot="start"></ion-icon>
-            <ion-label>{{ spot.address }}</ion-label>
+            <ion-label>{{ spot.phones[0]? spot.phones[0].number : 'No Posee' }}</ion-label>
           </ion-item>
         </ion-list>
 

@@ -12,7 +12,7 @@
     </ion-fab-button>
   </ion-fab>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab *ngIf="userLogged" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="recommend()">
       <ion-icon name="thumbs-up-outline"></ion-icon>
     </ion-fab-button>
@@ -66,7 +66,7 @@
       </ion-col>
 
       <ion-col size="3" class="btn-box">
-        <ion-button class="btn-option" fill="clear">
+        <ion-button *ngIf="userLogged" class="btn-option" fill="clear">
           <div>
             <ion-icon size="large" name="star"></ion-icon>
             <span class="txt-option">valorar</span>

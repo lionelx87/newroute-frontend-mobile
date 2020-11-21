@@ -5,6 +5,7 @@ import { Spot } from '../../interfaces/spot.interface';
 
 import { StorageService } from '../../services/storage.service';
 import { MapPage } from '../map/map.page';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -16,8 +17,12 @@ export class SpotPage implements OnInit {
 
   @Input() spot: Spot;
 
+  get userLogged() { return this.auth.isLogin(); }
+
   constructor( private modalCtrl: ModalController,
-               private storage: StorageService) { }
+               private storage: StorageService,
+               private auth: AuthService
+  ) { }
 
   ngOnInit() {
   }

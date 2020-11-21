@@ -6,6 +6,7 @@ import { Spot } from '../../interfaces/spot.interface';
 import { StorageService } from '../../services/storage.service';
 import { MapPage } from '../map/map.page';
 import { AuthService } from '../../services/auth.service';
+import { SpotService } from '../../services/spot.service';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class SpotPage implements OnInit {
 
   constructor( private modalCtrl: ModalController,
                private storage: StorageService,
-               private auth: AuthService
+               private auth: AuthService,
+               private spotService: SpotService
   ) { }
 
   ngOnInit() {
@@ -35,7 +37,10 @@ export class SpotPage implements OnInit {
     this.storage.store(this.spot);
   }
 
-  recommend() { console.log('recommend...'); }
+  recommend() { 
+    this.spotService.recommend(this.spot)
+      .subscribe( resp => { console.log(resp); } );
+  }
 
   async viewMap() {
     const modal = await this.modalCtrl.create({

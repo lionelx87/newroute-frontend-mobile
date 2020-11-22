@@ -18,7 +18,13 @@ export class SpotPage implements OnInit {
 
   @Input() spot: Spot;
 
+  options = { isRecommended: false };
+
+  loading = false;
+
   get userLogged() { return this.auth.isLogin(); }
+
+  get checkRecommended() { return this.options.isRecommended ? 'primary' : 'light'; }
 
   constructor( private modalCtrl: ModalController,
                private storage: StorageService,
@@ -27,6 +33,18 @@ export class SpotPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(this.userLogged) {
+      this.checkOptions();
+    }
+  }
+
+  async checkOptions() {
+    this.loading = true;
+    this.spotService.check(this.spot)
+      .subscribe( (resp: any) => {
+        this.options.isRecommended = resp.recommended;
+        this.loading = false;
+      });
   }
 
   close(): void {
@@ -37,9 +55,9 @@ export class SpotPage implements OnInit {
     this.storage.store(this.spot);
   }
 
-  recommend() { 
-    this.spotService.recommend(this.spot)
-      .subscribe( resp => { console.log(resp); } );
+  recommend() {
+    this.options.isRecommended = !this.options.isRecommended;
+    this.spotService.recommend(this.spot).subscribe();
   }
 
   async viewMap() {

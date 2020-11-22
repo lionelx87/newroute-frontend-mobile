@@ -13,7 +13,7 @@
   </ion-fab>
 
   <ion-fab *ngIf="userLogged" vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="recommend()">
+    <ion-fab-button (click)="recommend()" [color]="checkRecommended" [disabled]="loading">
       <ion-icon name="thumbs-up-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>

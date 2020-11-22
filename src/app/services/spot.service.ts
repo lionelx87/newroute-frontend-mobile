@@ -23,4 +23,12 @@ export class SpotService {
     });
   }
 
+  check(spot: Spot) {
+    return this.http.post(
+      environment.backend + '/check',
+      { spot: spot.id },
+      { headers: new HttpHeaders().append('Authorization', `Bearer ${this.auth.user.token}`)
+    });
+  }
+
 }

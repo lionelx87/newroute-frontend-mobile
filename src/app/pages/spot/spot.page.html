@@ -32,9 +32,18 @@
           {{ spot.name }}
         </span>
         <span>
-          <ion-icon size="large" *ngFor="let item of [1,2,3,4,5]" name="star-outline"></ion-icon>        
+          <ion-label class="valoration">
+            {{ spot.valoration.rating }}
+            <ion-icon name="star"></ion-icon>
+          </ion-label>
         </span>      
     </ion-row>
+
+    <ion-row class="ion-justify-content-end ion-align-items-center title-row">
+      <span>({{ spot.valoration.users }} reseñas)</span>
+    </ion-row>
+
+    
 
     <!-- Buttons Options -->
     <ion-row class="btn-row">

@@ -23,6 +23,14 @@ export class SpotService {
     });
   }
 
+  rate(spot: Spot, rating: number) {
+    return this.http.post(
+      environment.backend + '/rate',
+      { spot: spot.id, valoration: rating },
+      { headers: new HttpHeaders().append('Authorization', `Bearer ${this.auth.user.token}`)
+    });
+  }
+
   check(spot: Spot) {
     return this.http.post(
       environment.backend + '/check',

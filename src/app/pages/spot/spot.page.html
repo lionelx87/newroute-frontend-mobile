@@ -75,9 +75,9 @@
       </ion-col>
 
       <ion-col size="3" class="btn-box">
-        <ion-button *ngIf="userLogged" class="btn-option" fill="clear">
+        <ion-button *ngIf="userLogged" class="btn-option" fill="clear" (click)="rate($event)">
           <div>
-            <ion-icon size="large" name="star"></ion-icon>
+            <ion-icon size="large" [name]="checkRate"></ion-icon>
             <span class="txt-option">valorar</span>
           </div>
         </ion-button>

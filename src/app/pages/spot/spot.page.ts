@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, PopoverController } from '@ionic/angular';
 import { Mode } from 'src/assets/priority';
 import { Spot } from '../../interfaces/spot.interface';
 
@@ -7,6 +7,7 @@ import { StorageService } from '../../services/storage.service';
 import { MapPage } from '../map/map.page';
 import { AuthService } from '../../services/auth.service';
 import { SpotService } from '../../services/spot.service';
+import { ValorationComponent } from '../../components/valoration/valoration.component';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class SpotPage implements OnInit {
 
   @Input() spot: Spot;
 
-  options = { isRecommended: false };
+  options = { isRecommended: false, rating: 0 };
 
   loading = false;
 
@@ -26,10 +27,13 @@ export class SpotPage implements OnInit {
 
   get checkRecommended() { return this.options.isRecommended ? 'primary' : 'light'; }
 
+  get checkRate() { return this.options.rating === 0 ? 'star-outline' : 'star'; }
+
   constructor( private modalCtrl: ModalController,
                private storage: StorageService,
                private auth: AuthService,
-               private spotService: SpotService
+               private spotService: SpotService,
+               private popCtrl: PopoverController
   ) { }
 
   ngOnInit() {
@@ -43,6 +47,7 @@ export class SpotPage implements OnInit {
     this.spotService.check(this.spot)
       .subscribe( (resp: any) => {
         this.options.isRecommended = resp.recommended;
+        this.options.rating = resp.valoration;
         this.loading = false;
       });
   }
@@ -58,6 +63,20 @@ export class SpotPage implements OnInit {
   recommend() {
     this.options.isRecommended = !this.options.isRecommended;
     this.spotService.recommend(this.spot).subscribe();
+  }
+
+  async rate(ev: any) {
+    const popover = await this.popCtrl.create({
+      component: ValorationComponent,
+      componentProps: {
+        spot: this.spot,
+        rating: this.options.rating
+      },
+      cssClass: 'my-custom-class',
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
   }
 
   async viewMap() {

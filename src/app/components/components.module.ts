@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { RegistryFormComponent } from './forms/registry-form/registry-form.component';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
+import { ValorationComponent } from './valoration/valoration.component';
 
 
 
@@ -12,7 +13,8 @@ import { LoginFormComponent } from './forms/login-form/login-form.component';
   declarations: [
     HeaderComponent,
     RegistryFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ValorationComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { LoginFormComponent } from './forms/login-form/login-form.component';
   exports: [
     HeaderComponent,
     RegistryFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ValorationComponent
   ]
 })
 export class ComponentsModule { }

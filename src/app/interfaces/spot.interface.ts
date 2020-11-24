@@ -8,6 +8,7 @@ export interface Spot {
     longitude: string;
     images: string[];
     valoration: Valoration;
+    comments: Comment[];
     priority?: {
         value: number
     }
@@ -20,4 +21,11 @@ interface Phone {
 interface Valoration {
     users: number;
     rating: number;
+}
+
+interface Comment {
+    user: {
+        profile_photo_url;
+    },
+    message: string;
 }

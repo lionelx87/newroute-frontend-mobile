@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>{{ spot.name }} / (comentarios)</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeComments()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ spot.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,12 +13,12 @@
 
   <ion-list>
 
-    <ion-item *ngFor="let item of [1,2,3]">
+    <ion-item *ngFor="let comment of spot.comments">
       <ion-avatar slot="start">
-        <img src="https://ui-avatars.com/api/?name=Lionel+Acosta&color=7F9CF5&background=EBF4FF">
+        <img [src]="comment.user.profile_photo_url">
       </ion-avatar>
       <ion-row class="ion-justify-content-between ion-align-items-center">
-        <span class="ion-text-right">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, deserunt!</span>
+        <span class="ion-text-left">{{ comment.message }}</span>
       </ion-row>
     </ion-item>
 

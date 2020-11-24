@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Spot } from '../../interfaces/spot.interface';
 import { SpotService } from '../../services/spot.service';
+import { AuthService } from '../../services/auth.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-comments',
@@ -15,19 +17,31 @@ export class CommentsPage implements OnInit {
 
   comment: string;
 
-  constructor( private spotService: SpotService ) { }
+  constructor( 
+    private spotService: SpotService,
+    private auth: AuthService,
+    private modalCtrl: ModalController
+  ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   sendComment() {
     if(this.comment.trim().length > 0) {
       this.spotService.comment(this.spot, this.comment.trim())
         .subscribe(resp => {
-          console.log(resp);
           this.writing = false;
+          this.spot.comments.unshift({
+            user: {
+              profile_photo_url: this.auth.user.profile_photo_url,
+            },
+            message: this.comment
+          });
         });
     }
+  }
+
+  closeComments() {
+    this.modalCtrl.dismiss();
   }
 
 }

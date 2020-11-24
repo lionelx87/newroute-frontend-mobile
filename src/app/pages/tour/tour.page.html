@@ -1,8 +1,8 @@
 <app-header title="mi recorrido"></app-header>
 
-<ion-content>
+<ion-content class="ion-padding background-screen">
 
-    <ion-list>
+    <ion-list class="background-transparent">
         <ion-item-sliding *ngFor="let spot of spots; let i = index">
 
             <ion-item-options side="end">
@@ -50,7 +50,7 @@
 </ion-content>
 
 <ion-footer>
-    <ion-button expand="full" size="large" class="ion-no-margin" (click)="selectMode()">
+    <ion-button expand="full" size="large" class="ion-no-margin" (click)="selectMode()" [disabled]="empty">
         Iniciar
     </ion-button>
 </ion-footer>

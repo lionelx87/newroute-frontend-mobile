@@ -2,6 +2,7 @@ import { Mode } from './../../../assets/priority';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Spot } from '../../interfaces/spot.interface';
 import { GeolocationService } from '../../services/geolocation.service';
+import { ModalController } from '@ionic/angular';
 
 
 @Component({
@@ -18,7 +19,10 @@ export class MapPage implements OnInit {
   optimizedRoute: boolean;
 
 
-  constructor( private geolocation: GeolocationService ) { this.optimizedRoute = true; }
+  constructor( 
+    private geolocation: GeolocationService,
+    private modalCtrl: ModalController
+  ) { this.optimizedRoute = true; }
 
   ngOnInit() {
   }
@@ -44,6 +48,10 @@ export class MapPage implements OnInit {
 
   sortByProximity() {
     this.optimizedRoute = true;
+  }
+
+  close() {
+   this.modalCtrl.dismiss();
   }
 
 }

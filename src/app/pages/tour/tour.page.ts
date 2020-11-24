@@ -127,7 +127,8 @@ export class TourPage implements OnInit {
                 mode: value
               }
             });
-            return await modal.present();
+            await modal.present();
+            this.getSpots();
           }
         }
       ]

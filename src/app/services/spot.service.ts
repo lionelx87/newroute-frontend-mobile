@@ -31,6 +31,14 @@ export class SpotService {
     });
   }
 
+  comment(spot: Spot, comment: string) {
+    return this.http.post(
+      environment.backend + '/comment',
+      { spot: spot.id, message: comment },
+      { headers: new HttpHeaders().append('Authorization', `Bearer ${this.auth.user.token}`)
+    });
+  }
+
   check(spot: Spot) {
     return this.http.post(
       environment.backend + '/check',

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Spot } from '../../interfaces/spot.interface';
+import { SpotService } from '../../services/spot.service';
 
 @Component({
   selector: 'app-comments',
@@ -14,13 +15,19 @@ export class CommentsPage implements OnInit {
 
   comment: string;
 
-  constructor() { }
+  constructor( private spotService: SpotService ) { }
 
   ngOnInit() {
   }
 
   sendComment() {
-    console.log(this.comment);
+    if(this.comment.trim().length > 0) {
+      this.spotService.comment(this.spot, this.comment.trim())
+        .subscribe(resp => {
+          console.log(resp);
+          this.writing = false;
+        });
+    }
   }
 
 }

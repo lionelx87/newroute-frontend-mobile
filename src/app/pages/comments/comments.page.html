@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ spot.name }} / (comentarios)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-item *ngFor="let item of [1,2,3]">
+      <ion-avatar slot="start">
+        <img src="https://ui-avatars.com/api/?name=Lionel+Acosta&color=7F9CF5&background=EBF4FF">
+      </ion-avatar>
+      <ion-row class="ion-justify-content-between ion-align-items-center">
+        <span class="ion-text-right">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, deserunt!</span>
+      </ion-row>
+    </ion-item>
+
+    
+  </ion-list>
+
+  <ion-item *ngIf="writing">
+    <ion-textarea placeholder="Escríba su comentario aquí..." autoGrow [(ngModel)]="comment">
+      <ion-button fill="clear" shape="round" (click)="sendComment()">
+        <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+      </ion-button>
+    </ion-textarea>
+  </ion-item>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="writing = !writing">
+      <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

@@ -32,7 +32,11 @@ const routes: Routes = [
     path: 'access',
     loadChildren: () => import('./pages/access/access.module').then( m => m.AccessPageModule),
     canActivate: [ AuthService ]
+  },  {
+    path: 'comments',
+    loadChildren: () => import('./pages/comments/comments.module').then( m => m.CommentsPageModule)
   },
+
 ];
 
 @NgModule({

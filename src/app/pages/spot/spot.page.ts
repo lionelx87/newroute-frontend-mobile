@@ -8,6 +8,7 @@ import { MapPage } from '../map/map.page';
 import { AuthService } from '../../services/auth.service';
 import { SpotService } from '../../services/spot.service';
 import { ValorationComponent } from '../../components/valoration/valoration.component';
+import { CommentsPage } from '../comments/comments.page';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class SpotPage implements OnInit {
                private storage: StorageService,
                private auth: AuthService,
                private spotService: SpotService,
-               private popCtrl: PopoverController
+               private popCtrl: PopoverController,
   ) { }
 
   ngOnInit() {
@@ -85,6 +86,16 @@ export class SpotPage implements OnInit {
       componentProps: {
         spots: [this.spot],
         mode: Mode.BY_PROXIMITY
+      }
+    });
+    return await modal.present();
+  }
+
+  async openComments() {
+    const modal = await this.modalCtrl.create({
+      component: CommentsPage,
+      componentProps: {
+        spot: this.spot
       }
     });
     return await modal.present();

@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth.service';
 import { SpotService } from '../../services/spot.service';
 import { ValorationComponent } from '../../components/valoration/valoration.component';
 import { CommentsPage } from '../comments/comments.page';
+import { MessageService } from '../../services/message.service';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class SpotPage implements OnInit {
                private auth: AuthService,
                private spotService: SpotService,
                private popCtrl: PopoverController,
+               private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -57,8 +59,9 @@ export class SpotPage implements OnInit {
     this.modalCtrl.dismiss();
   }
 
-  addToTour() {
-    this.storage.store(this.spot);
+  async addToTour() {
+    await this.storage.store(this.spot);
+    this.messageService.present('Se agrego correctamente a su recorrido.');
   }
 
   recommend() {

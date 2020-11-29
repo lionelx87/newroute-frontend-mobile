@@ -14,9 +14,11 @@ import { MapPage } from '../map/map.page';
 })
 export class TourPage implements OnInit {
 
-  spots: Spot[];
+  spots: Spot[] = [];
 
   @ViewChild(IonList) ionList: IonList;
+
+  get empty() { return this.spots.length <= 0; }
 
   constructor( private storage: StorageService,
                private router: Router,
@@ -125,7 +127,8 @@ export class TourPage implements OnInit {
                 mode: value
               }
             });
-            return await modal.present();
+            await modal.present();
+            this.getSpots();
           }
         }
       ]

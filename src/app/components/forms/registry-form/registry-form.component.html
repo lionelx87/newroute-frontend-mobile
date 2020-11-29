@@ -15,7 +15,7 @@
           <ion-input formControlName="name" autofocus required></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.name" class="ion-text-end">
-          <ng-container *ngIf="name.hasError(error.type) && name.touched">
+          <ng-container *ngIf="name.hasError(error.type) && (name.touched || name.dirty)">
             <small class="error-message">{{ error.message }}</small>
           </ng-container>
         </div>
@@ -27,7 +27,7 @@
           <ion-input formControlName="email" inputmode="email" type="email" required></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.email" class="ion-text-end">
-          <ng-container *ngIf="email.hasError(error.type) && email.touched">
+          <ng-container *ngIf="email.hasError(error.type) && (email.touched || email.dirty)">
             <small class="error-message">{{ error.message }}</small>
           </ng-container>
         </div>
@@ -39,7 +39,7 @@
           <ion-input formControlName="password" type="password" required></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.password" class="ion-text-end">
-          <ng-container *ngIf="password.hasError(error.type) && password.touched">
+          <ng-container *ngIf="password.hasError(error.type) && (password.touched || password.dirty)">
             <small class="error-message">{{ error.message }}</small>
           </ng-container>
         </div>
@@ -51,7 +51,7 @@
           <ion-input formControlName="password_confirmation" type="password" required></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.password_confirmation" class="ion-text-end">
-          <ng-container *ngIf="password_confirmation.hasError(error.type) && password_confirmation.touched">
+          <ng-container *ngIf="password_confirmation.hasError(error.type) && (password_confirmation.touched || password_confirmation.dirty)">
             <small class="error-message">{{ error.message }}</small>
           </ng-container>
         </div>

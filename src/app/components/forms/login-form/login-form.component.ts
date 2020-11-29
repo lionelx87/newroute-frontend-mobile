@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { errors } from '../error-messages';
 import { AuthService } from '../../../services/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-form',
@@ -45,6 +46,13 @@ export class LoginFormComponent implements OnInit {
     if(this.form.valid) {
       this.errorMessage = '';
       this.loading = true;
+      this.auth.login(this.form.value)
+        .subscribe(resp => {
+          console.log(resp);
+        }, (err: HttpErrorResponse) => {
+          this.errorMessage = err[Object.keys(err)[0]][0];
+          this.loading = false;
+        }, () => this.loading = false);
     }
   }
 

@@ -14,16 +14,15 @@ import { SpotPage } from '../../spot/spot.page';
 export class CategoryPage implements OnInit {
 
   spots: Observable<Spot[]>;
+  category: string;
 
   constructor( private activatedRoute: ActivatedRoute, 
                private categoryService: CategoryService,
                private modalCtrl: ModalController) { }
 
   ngOnInit() {
-    this.activatedRoute.params
-      .subscribe( params => {
-        this.spots = this.categoryService.getSpotsForCategory(params.id);
-      });
+    this.category = this.activatedRoute.snapshot.queryParams.category;
+    this.spots = this.categoryService.getSpotsForCategory(this.activatedRoute.snapshot.params.id);
   }
 
   async openSpot(spot: Spot) {

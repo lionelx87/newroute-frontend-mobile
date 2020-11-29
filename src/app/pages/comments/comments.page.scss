@@ -1,0 +1,16 @@
+ion-avatar {
+    width: 4rem;
+    height: 4rem;
+    img {
+        width: 4rem;
+    }
+}
+
+ion-textarea {
+    --padding-end:  3.75rem;
+    ion-button {
+        position: absolute;
+        right: 0;
+        bottom: 0.625rem;        
+    }
+}

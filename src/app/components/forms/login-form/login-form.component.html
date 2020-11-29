@@ -14,7 +14,7 @@
           <ion-input formControlName="email" autofocus inputmode="email" type="email" required></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.email" class="ion-text-end">
-          <ng-container *ngIf="email.hasError(error.type) && email.touched">
+          <ng-container *ngIf="email.hasError(error.type) && (email.touched || email.dirty)">
             <small class="error-message">{{ error.message }}</small>
           </ng-container>
         </div>
@@ -25,7 +25,7 @@
           <ion-input formControlName="password" type="password" required></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.password" class="ion-text-end">
-          <ng-container *ngIf="password.hasError(error.type) && password.touched">
+          <ng-container *ngIf="password.hasError(error.type) && (password.touched || password.dirty)">
             <small class="error-message">{{ error.message }}</small>
           </ng-container>
         </div>
@@ -40,6 +40,10 @@
         <span *ngIf="!loading">Ingresar</span>
         <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
       </ion-button>
+
+      <div class="ion-text-center error-message ion-margin-top">
+        <p>{{ errorMessage }}</p>
+      </div>
 
     </form>
 

@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
 
     <ion-buttons slot="start">
       <ion-menu-button menu="menu-content"></ion-menu-button>
@@ -7,7 +7,7 @@
 
 
     <ion-title>
-      Home
+      NewRoute
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,8 +20,12 @@
   </ion-header>
 
   <div id="container">
-    <ion-button color="primary">
-      Prueba
-    </ion-button>
+    <ion-chip *ngIf="userLogged">
+      <ion-avatar>
+        <img [src]="profilePhoto | safeUrl">
+      </ion-avatar>
+      <ion-label color="white" class="title-user ion-text-capitalize">{{ userName }}</ion-label>
+    </ion-chip>
+
   </div>
 </ion-content>

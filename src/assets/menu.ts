@@ -1,5 +1,5 @@
 export const menu = [
-    { title: 'acceder', icon: 'person-circle-outline', redirectTo: '/access' },
+    // { title: 'acceder', icon: 'person-circle-outline', redirectTo: '/access' },
     { title: 'categorías', icon: 'albums-outline', redirectTo: '/categories' },
     { title: 'Modo de navegación', icon: 'color-wand-outline', redirectTo: '' },
     { title: 'recomendados', icon: 'thumbs-up-outline', redirectTo: '' },

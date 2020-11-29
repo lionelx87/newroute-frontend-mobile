@@ -1,0 +1,15 @@
+<ion-grid fixed>
+  <ion-row class="ion-justify-content-center ion-align-items-center">
+    <span>
+      <ion-icon *ngFor="let item of itemsValoration" size="large" [name]="item.icon" (click)="fillValoration(item.value)"></ion-icon>
+    </span>
+  </ion-row>
+</ion-grid>
+
+<ion-grid fixed>
+  <ion-row class="ion-justify-content-center ion-align-items-center">
+    <ion-button (click)="sendRate()" expand="block" fill="clear" shape="round">
+      Valorar
+    </ion-button>
+  </ion-row>
+</ion-grid>

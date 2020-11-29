@@ -28,13 +28,14 @@
   <ion-item *ngIf="writing">
     <ion-textarea placeholder="Escríba su comentario aquí..." autoGrow [(ngModel)]="comment">
       <ion-button fill="clear" shape="round" (click)="sendComment()">
-        <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+        <ion-spinner *ngIf="sending" class="btn-textarea" name="crescent"></ion-spinner>
+        <ion-icon *ngIf="!sending" slot="icon-only" name="send-outline"></ion-icon>
       </ion-button>
     </ion-textarea>
   </ion-item>
 
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab *ngIf="userLogged" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="writing = !writing">
       <ion-icon name="chatbox-ellipses-outline"></ion-icon>
     </ion-fab-button>

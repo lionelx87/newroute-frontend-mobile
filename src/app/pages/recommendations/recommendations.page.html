@@ -1,0 +1,28 @@
+<app-header title="recomendados"></app-header>
+
+<ion-content class="ion-padding background-screen">
+
+  <ion-list class="background-transparent">
+
+    
+      <ion-item *ngFor="let spot of spots | async">
+        <ion-avatar slot="start">
+          <img [src]="spot.images[0] | composeUrl">
+        </ion-avatar>
+        <ion-row class="ion-justify-content-between ion-align-items-center">
+          <ion-col size="12">
+            <span class="ion-text-left">{{ spot.name }}</span>
+          </ion-col>
+          <ion-col size="12">
+            <ion-row class="ion-justify-content-between ion-align-items-center mt-2">
+              <small class="tag ion-text-capitalize">{{ spot.category }}</small>
+              <small>Recomendado por {{ spot.total }} usuarios</small>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>    
+
+  </ion-list>
+
+
+</ion-content>

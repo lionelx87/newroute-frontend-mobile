@@ -36,6 +36,10 @@ const routes: Routes = [
     path: 'comments',
     loadChildren: () => import('./pages/comments/comments.module').then( m => m.CommentsPageModule)
   },
+  {
+    path: 'recommendations',
+    loadChildren: () => import('./pages/recommendations/recommendations.module').then( m => m.RecommendationsPageModule)
+  },
 
 ];
 

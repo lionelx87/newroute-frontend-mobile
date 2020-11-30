@@ -18,7 +18,15 @@
         <img [src]="comment.user.profile_photo_url">
       </ion-avatar>
       <ion-row class="ion-justify-content-between ion-align-items-center">
-        <span class="ion-text-left">{{ comment.message }}</span>
+        <ion-col size="12">
+          <span class="ion-text-left">{{ comment.message }}</span>          
+        </ion-col>
+        <ion-col size="12">
+          <ion-row class="ion-justify-content-between ion-align-items-center mt-2">
+            <small class="text ion-text-capitalize">{{ comment.user.name }}</small>
+            <small class="text">{{ comment.created_at }}</small>
+          </ion-row>
+        </ion-col>
       </ion-row>
     </ion-item>
 
@@ -28,13 +36,14 @@
   <ion-item *ngIf="writing">
     <ion-textarea placeholder="Escríba su comentario aquí..." autoGrow [(ngModel)]="comment">
       <ion-button fill="clear" shape="round" (click)="sendComment()">
-        <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+        <ion-spinner *ngIf="sending" class="btn-textarea" name="crescent"></ion-spinner>
+        <ion-icon *ngIf="!sending" slot="icon-only" name="send-outline"></ion-icon>
       </ion-button>
     </ion-textarea>
   </ion-item>
 
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab *ngIf="userLogged" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="writing = !writing">
       <ion-icon name="chatbox-ellipses-outline"></ion-icon>
     </ion-fab-button>

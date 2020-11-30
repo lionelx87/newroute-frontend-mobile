@@ -15,7 +15,11 @@ export class CommentsPage implements OnInit {
 
   writing = false;
 
+  sending = false;
+
   comment: string;
+
+  get userLogged() { return this.auth.isLogin(); }
 
   constructor( 
     private spotService: SpotService,
@@ -23,19 +27,24 @@ export class CommentsPage implements OnInit {
     private modalCtrl: ModalController
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {  }
 
   sendComment() {
     if(this.comment.trim().length > 0) {
+      this.sending = true;
       this.spotService.comment(this.spot, this.comment.trim())
         .subscribe(resp => {
           this.writing = false;
+          this.sending = false;
           this.spot.comments.unshift({
             user: {
               profile_photo_url: this.auth.user.profile_photo_url,
+              name: this.auth.user.name
             },
-            message: this.comment
+            message: this.comment,
+            created_at: 'ahora'
           });
+          this.comment = '';
         });
     }
   }

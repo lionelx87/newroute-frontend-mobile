@@ -26,6 +26,8 @@ interface Valoration {
 interface Comment {
     user: {
         profile_photo_url;
+        name: string;
     },
     message: string;
+    created_at: string;
 }

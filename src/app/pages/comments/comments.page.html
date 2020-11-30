@@ -18,7 +18,15 @@
         <img [src]="comment.user.profile_photo_url">
       </ion-avatar>
       <ion-row class="ion-justify-content-between ion-align-items-center">
-        <span class="ion-text-left">{{ comment.message }}</span>
+        <ion-col size="12">
+          <span class="ion-text-left">{{ comment.message }}</span>          
+        </ion-col>
+        <ion-col size="12">
+          <ion-row class="ion-justify-content-between ion-align-items-center mt-2">
+            <small class="text ion-text-capitalize">{{ comment.user.name }}</small>
+            <small class="text">{{ comment.created_at }}</small>
+          </ion-row>
+        </ion-col>
       </ion-row>
     </ion-item>
 

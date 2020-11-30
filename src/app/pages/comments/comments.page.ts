@@ -27,7 +27,7 @@ export class CommentsPage implements OnInit {
     private modalCtrl: ModalController
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {  }
 
   sendComment() {
     if(this.comment.trim().length > 0) {
@@ -39,8 +39,10 @@ export class CommentsPage implements OnInit {
           this.spot.comments.unshift({
             user: {
               profile_photo_url: this.auth.user.profile_photo_url,
+              name: this.auth.user.name
             },
-            message: this.comment
+            message: this.comment,
+            created_at: 'ahora'
           });
           this.comment = '';
         });

@@ -7,10 +7,14 @@ ion-avatar {
 }
 
 ion-textarea {
-    --padding-end:  3.75rem;
+    --padding-end:  3.75rem;    
     ion-button {
         position: absolute;
         right: 0;
         bottom: 0.625rem;        
     }
 }
+
+.text {
+        font-weight: 300;
+    }

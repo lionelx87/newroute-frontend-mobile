@@ -2,7 +2,7 @@ export const menu = [
     // { title: 'acceder', icon: 'person-circle-outline', redirectTo: '/access' },
     { title: 'categorías', icon: 'albums-outline', redirectTo: '/categories' },
     { title: 'Modo de navegación', icon: 'color-wand-outline', redirectTo: '' },
-    { title: 'recomendados', icon: 'thumbs-up-outline', redirectTo: '' },
+    { title: 'recomendados', icon: 'thumbs-up-outline', redirectTo: '/recommendations' },
     { title: 'mejor valorados', icon: 'star-outline', redirectTo: '' },
     { title: 'mi recorrido', icon: 'location-outline', redirectTo: '/tour' },
     { title: 'perfil viajero', icon: 'walk-outline', redirectTo: '' },

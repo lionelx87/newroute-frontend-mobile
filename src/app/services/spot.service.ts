@@ -1,7 +1,7 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Spot } from '../interfaces/spot.interface';
+import { Spot, SpotRecommended } from '../interfaces/spot.interface';
 import { AuthService } from './auth.service';
 
 
@@ -45,6 +45,10 @@ export class SpotService {
       { spot: spot.id },
       { headers: new HttpHeaders().append('Authorization', `Bearer ${this.auth.user.token}`)
     });
+  }
+
+  recommendations() {
+    return this.http.get<SpotRecommended[]>( environment.backend + '/recommendations');
   }
 
 }

@@ -31,3 +31,10 @@ interface Comment {
     message: string;
     created_at: string;
 }
+
+export interface SpotRecommended {
+    name: string;
+    images: string[];
+    category: string;
+    total: number;
+}

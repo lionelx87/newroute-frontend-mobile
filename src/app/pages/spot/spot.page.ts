@@ -21,15 +21,15 @@ export class SpotPage implements OnInit {
 
   @Input() spot: Spot;
 
-  options = { isRecommended: false, rating: 0 };
+  opinions = { isRecommended: false, rating: 0 };
 
   loading = false;
 
   get userLogged() { return this.auth.isLogin(); }
 
-  get checkRecommended() { return this.options.isRecommended ? 'primary' : 'light'; }
+  get checkRecommended() { return this.opinions.isRecommended ? 'primary' : 'light'; }
 
-  get checkRate() { return this.options.rating === 0 ? 'star-outline' : 'star'; }
+  get checkRate() { return this.opinions.rating === 0 ? 'star-outline' : 'star'; }
 
   constructor( private modalCtrl: ModalController,
                private storage: StorageService,
@@ -41,16 +41,16 @@ export class SpotPage implements OnInit {
 
   ngOnInit() {
     if(this.userLogged) {
-      this.checkOptions();
+      this.checkopinions();
     }
   }
 
-  async checkOptions() {
+  async checkopinions() {
     this.loading = true;
-    this.spotService.check(this.spot)
+    this.spotService.getOpinions(this.spot)
       .subscribe( (resp: any) => {
-        this.options.isRecommended = resp.recommended;
-        this.options.rating = resp.valoration;
+        this.opinions.isRecommended = resp.recommended;
+        this.opinions.rating = resp.valoration;
         this.loading = false;
       });
   }
@@ -65,7 +65,7 @@ export class SpotPage implements OnInit {
   }
 
   recommend() {
-    this.options.isRecommended = !this.options.isRecommended;
+    this.opinions.isRecommended = !this.opinions.isRecommended;
     this.spotService.recommend(this.spot).subscribe();
   }
 
@@ -74,7 +74,7 @@ export class SpotPage implements OnInit {
       component: ValorationComponent,
       componentProps: {
         spot: this.spot,
-        rating: this.options.rating
+        rating: this.opinions.rating
       },
       cssClass: 'my-custom-class',
       event: ev,

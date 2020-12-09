@@ -39,15 +39,15 @@ export class SpotService {
     });
   }
 
-  check(spot: Spot) {
+  getOpinions(spot: Spot) {
     return this.http.post(
-      environment.backend + '/check',
+      environment.backend + '/opinions',
       { spot: spot.id },
       { headers: new HttpHeaders().append('Authorization', `Bearer ${this.auth.user.token}`)
     });
   }
 
-  recommendations() {
+  getRecommendations() {
     return this.http.get<SpotRecommended[]>( environment.backend + '/recommendations');
   }
 

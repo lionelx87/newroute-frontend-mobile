@@ -15,7 +15,7 @@ export class RecommendationsPage implements OnInit {
   constructor( private spotService: SpotService ) { }
 
   ngOnInit() {
-    this.spots = this.spotService.recommendations();
+    this.spots = this.spotService.getRecommendations();
   }
 
 }

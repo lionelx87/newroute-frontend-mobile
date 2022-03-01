@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { RegistryFormComponent } from './forms/registry-form/registry-form.component';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { ValorationComponent } from './valoration/valoration.component';
+import { ResetFormComponent } from './forms/reset-form/reset-form.component';
 
 
 
@@ -14,6 +15,7 @@ import { ValorationComponent } from './valoration/valoration.component';
     HeaderComponent,
     RegistryFormComponent,
     LoginFormComponent,
+    ResetFormComponent,
     ValorationComponent
   ],
   imports: [
@@ -25,6 +27,7 @@ import { ValorationComponent } from './valoration/valoration.component';
     HeaderComponent,
     RegistryFormComponent,
     LoginFormComponent,
+    ResetFormComponent,
     ValorationComponent
   ]
 })

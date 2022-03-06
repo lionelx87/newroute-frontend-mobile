@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { errors } from "../error-messages";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Router } from "@angular/router";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-reset-form",
@@ -15,7 +16,11 @@ export class ResetFormComponent implements OnInit {
   errorMessage: string;
   loading: boolean;
 
-  constructor(private formBuilder: FormBuilder, private route: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: Router,
+    private auth: AuthService
+  ) {
     this.buildForm();
     this.errorMessage = "";
     this.loading = false;
@@ -38,12 +43,17 @@ export class ResetFormComponent implements OnInit {
     if (this.form.valid) {
       this.errorMessage = "";
       this.loading = true;
-      console.log("enviando...");
+      this.auth.forgotPassword(this.form.value)
+        .subscribe( resp => {
+          this.toSendCode();
+        }, (err: HttpErrorResponse) => {
+          this.errorMessage = err[0];
+          this.loading = false;
+        }, () => this.loading = false);
     }
   }
 
   toSendCode() {
-    this.route.navigate(['/send-code']);
+    this.route.navigate(["/send-code"]);
   }
-
 }

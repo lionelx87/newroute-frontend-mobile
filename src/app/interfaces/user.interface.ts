@@ -16,3 +16,7 @@ export interface UserAuth {
     profile_photo_url: string;
     token: string;
 }
+
+export interface RequestReset {
+    email: string;
+}

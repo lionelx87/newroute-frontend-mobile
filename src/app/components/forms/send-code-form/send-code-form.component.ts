@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { errors } from "../error-messages";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Router } from "@angular/router";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
-  selector: 'app-send-code-form',
-  templateUrl: './send-code-form.component.html',
-  styleUrls: ['./send-code-form.component.scss'],
+  selector: "app-send-code-form",
+  templateUrl: "./send-code-form.component.html",
+  styleUrls: ["./send-code-form.component.scss"],
 })
 export class SendCodeFormComponent implements OnInit {
   form: FormGroup;
@@ -15,32 +16,41 @@ export class SendCodeFormComponent implements OnInit {
   errorMessage: string;
   loading: boolean;
 
-  constructor(private formBuilder: FormBuilder, private route: Router) { 
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: Router,
+    private auth: AuthService
+  ) {
     this.buildForm();
-    this.errorMessage = '';
+    this.errorMessage = "";
     this.loading = false;
   }
 
   ngOnInit() {}
 
   get code() {
-    return this.form.get('code');
+    return this.form.get("code");
   }
 
   private buildForm(): void {
     this.form = this.formBuilder.group({
-      code: [ '', [ Validators.required ] ],
+      code: ["", [Validators.required]],
     });
   }
 
   sendCode(event: Event) {
     event.preventDefault();
-    if(this.form.valid) {
-      this.errorMessage = '';
+    if (this.form.valid) {
+      this.errorMessage = "";
       this.loading = true;
-      console.log('enviando código...');
-      this.route.navigate(['/new-password']) 
+      this.auth.resetPasswordToken(this.form.value)
+        .subscribe( resp => {
+          console.log(resp);
+          // this.route.navigate(["/new-password"]);
+        }, (err: HttpErrorResponse) => {          
+          this.errorMessage = err.error.message;
+          this.loading = false
+        }, () => this.loading = false);
     }
   }
-
 }

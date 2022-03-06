@@ -20,3 +20,7 @@ export interface UserAuth {
 export interface RequestReset {
     email: string;
 }
+
+export interface ResetPasswordToken {
+    code: string;
+}

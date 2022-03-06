@@ -39,6 +39,7 @@ export class SendCodeFormComponent implements OnInit {
       this.errorMessage = '';
       this.loading = true;
       console.log('enviando código...');
+      this.route.navigate(['/new-password']) 
     }
   }
 

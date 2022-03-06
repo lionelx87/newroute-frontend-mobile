@@ -41,4 +41,9 @@ export class ResetFormComponent implements OnInit {
       console.log("enviando...");
     }
   }
+
+  toSendCode() {
+    this.route.navigate(['/send-code']);
+  }
+
 }

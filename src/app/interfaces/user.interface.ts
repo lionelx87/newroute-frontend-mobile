@@ -21,12 +21,16 @@ export interface RequestReset {
     email: string;
 }
 
-export interface ResetPasswordToken {
+export interface RequestToken {
     code: string;
 }
 
 export interface RequestNewPassword {
     password: string;
     password_confirmation: string;
+    token: string;
+}
+
+export interface ResponseToken {
     token: string;
 }

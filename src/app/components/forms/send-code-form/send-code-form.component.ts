@@ -4,6 +4,7 @@ import { errors } from "../error-messages";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { AuthService } from "src/app/services/auth.service";
+import { ResponseToken } from "src/app/interfaces/user.interface";
 
 @Component({
   selector: "app-send-code-form",
@@ -44,7 +45,7 @@ export class SendCodeFormComponent implements OnInit {
       this.errorMessage = "";
       this.loading = true;
       this.auth.resetPasswordToken(this.form.value)
-        .subscribe( (resp: any) => {
+        .subscribe( (resp: ResponseToken) => {
           this.route.navigate(["/new-password", resp.token]);
         }, (err: HttpErrorResponse) => {          
           this.errorMessage = err.error.message;

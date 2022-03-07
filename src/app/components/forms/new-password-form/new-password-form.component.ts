@@ -66,7 +66,7 @@ export class NewPasswordFormComponent implements OnInit {
       this.loading = true;
       this.form.value.token = this.token;
       this.auth.newPassword( this.form.value )
-        .subscribe( (resp: any) => {
+        .subscribe( () => {
           this.router.navigate(['/access']);
         }, (err: HttpErrorResponse) => {
           this.errorMessage = err.error.message;

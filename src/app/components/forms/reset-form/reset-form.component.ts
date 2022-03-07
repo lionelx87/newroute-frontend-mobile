@@ -44,7 +44,7 @@ export class ResetFormComponent implements OnInit {
       this.errorMessage = "";
       this.loading = true;
       this.auth.forgotPassword(this.form.value)
-        .subscribe( resp => {
+        .subscribe( () => {
           this.toSendCode();
         }, (err: HttpErrorResponse) => {
           this.errorMessage = err[0];

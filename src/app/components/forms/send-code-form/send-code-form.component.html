@@ -1,0 +1,48 @@
+<ion-card class="centered-box">
+  <ion-card-header color="primary" class="ion-text-center">
+    <ion-card-title>Código de Reseteo</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p class="text--information">
+      Ingrese el código que recibio en su correo electrónico para resetear su contraseña
+    </p>
+    <form [formGroup]="form" novalidate (ngSubmit)="sendCode($event)">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating"
+            >Código <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input
+            formControlName="code"
+            autofocus
+            inputmode="text"
+            type="text"
+            required
+          ></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.code" class="ion-text-end">
+          <ng-container
+            *ngIf="code.hasError(error.type) && (code.touched || code.dirty)"
+          >
+            <small class="error-message">{{ error.message }}</small>
+          </ng-container>
+        </div>
+      </ion-list>
+
+      <ion-button
+        type="submit"
+        [disabled]="form.invalid"
+        class="ion-margin-top"
+        expand="full"
+        shape="round"
+      >
+        <span *ngIf="!loading">Enviar Código</span>
+        <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+      </ion-button>
+
+      <div class="ion-text-center error-message ion-margin-top">
+        <p>{{ errorMessage }}</p>
+      </div>
+    </form>
+  </ion-card-content>
+</ion-card>

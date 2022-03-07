@@ -1,0 +1,53 @@
+<ion-card class="centered-box">
+  <ion-card-header color="primary" class="ion-text-center">
+    <ion-card-title>¿Ha olvidado su contraseña?</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p class="text--information">
+      No se preocupe. Sólo tienes que colocar su correo electrónico y le
+      enviaremos un código para restablecer su contraseña
+    </p>
+    <form [formGroup]="form" novalidate (ngSubmit)="resetPassword($event)">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating"
+            >Correo <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input
+            formControlName="email"
+            autofocus
+            inputmode="email"
+            type="email"
+            required
+          ></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.email" class="ion-text-end">
+          <ng-container
+            *ngIf="email.hasError(error.type) && (email.touched || email.dirty)"
+          >
+            <small class="error-message">{{ error.message }}</small>
+          </ng-container>
+        </div>
+      </ion-list>
+
+      <ion-button color="secondary" size="small" fill="clear" (click)="toSendCode()">
+        Tengo el código
+      </ion-button>
+
+      <ion-button
+        type="submit"
+        [disabled]="form.invalid"
+        class="ion-margin-top"
+        expand="full"
+        shape="round"
+      >
+        <span *ngIf="!loading">Enviar Correo</span>
+        <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+      </ion-button>
+
+      <div class="ion-text-center error-message ion-margin-top">
+        <p>{{ errorMessage }}</p>
+      </div>
+    </form>
+  </ion-card-content>
+</ion-card>

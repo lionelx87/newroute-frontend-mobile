@@ -6,6 +6,9 @@ import { IonicModule } from '@ionic/angular';
 import { RegistryFormComponent } from './forms/registry-form/registry-form.component';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { ValorationComponent } from './valoration/valoration.component';
+import { ResetFormComponent } from './forms/reset-form/reset-form.component';
+import { SendCodeFormComponent } from './forms/send-code-form/send-code-form.component';
+import { NewPasswordFormComponent } from './forms/new-password-form/new-password-form.component';
 
 
 
@@ -14,7 +17,10 @@ import { ValorationComponent } from './valoration/valoration.component';
     HeaderComponent,
     RegistryFormComponent,
     LoginFormComponent,
-    ValorationComponent
+    ResetFormComponent,
+    ValorationComponent,
+    SendCodeFormComponent,
+    NewPasswordFormComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +31,10 @@ import { ValorationComponent } from './valoration/valoration.component';
     HeaderComponent,
     RegistryFormComponent,
     LoginFormComponent,
-    ValorationComponent
+    ResetFormComponent,
+    ValorationComponent,
+    SendCodeFormComponent,
+    NewPasswordFormComponent
   ]
 })
 export class ComponentsModule { }

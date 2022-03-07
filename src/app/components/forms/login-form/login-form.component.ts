@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { errors } from '../error-messages';
 import { AuthService } from '../../../services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -17,6 +18,7 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private route:Router,
     private auth: AuthService
   ) { 
     this.buildForm();
@@ -54,6 +56,10 @@ export class LoginFormComponent implements OnInit {
           this.loading = false;
         }, () => this.loading = false);
     }
+  }
+
+  toResetPassword() {
+    this.route.navigate(['/reset-password']) 
   }
 
 }

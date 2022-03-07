@@ -16,3 +16,21 @@ export interface UserAuth {
     profile_photo_url: string;
     token: string;
 }
+
+export interface RequestReset {
+    email: string;
+}
+
+export interface RequestToken {
+    code: string;
+}
+
+export interface RequestNewPassword {
+    password: string;
+    password_confirmation: string;
+    token: string;
+}
+
+export interface ResponseToken {
+    token: string;
+}

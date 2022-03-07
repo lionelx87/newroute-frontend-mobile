@@ -24,3 +24,9 @@ export interface RequestReset {
 export interface ResetPasswordToken {
     code: string;
 }
+
+export interface RequestNewPassword {
+    password: string;
+    password_confirmation: string;
+    token: string;
+}

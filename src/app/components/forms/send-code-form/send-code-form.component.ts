@@ -44,9 +44,8 @@ export class SendCodeFormComponent implements OnInit {
       this.errorMessage = "";
       this.loading = true;
       this.auth.resetPasswordToken(this.form.value)
-        .subscribe( resp => {
-          console.log(resp);
-          // this.route.navigate(["/new-password"]);
+        .subscribe( (resp: any) => {
+          this.route.navigate(["/new-password", resp.token]);
         }, (err: HttpErrorResponse) => {          
           this.errorMessage = err.error.message;
           this.loading = false

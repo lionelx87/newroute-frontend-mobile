@@ -32,7 +32,8 @@ const routes: Routes = [
     path: 'access',
     loadChildren: () => import('./pages/access/access.module').then( m => m.AccessPageModule),
     canActivate: [ AuthService ]
-  },  {
+  },
+  {
     path: 'comments',
     loadChildren: () => import('./pages/comments/comments.module').then( m => m.CommentsPageModule)
   },
@@ -49,7 +50,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/send-code/send-code.module').then( m => m.SendCodePageModule)
   },
   {
-    path: 'new-password',
+    path: 'new-password/:token',
     loadChildren: () => import('./pages/new-password/new-password.module').then( m => m.NewPasswordPageModule)
   },
 

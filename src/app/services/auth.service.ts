@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { UserRegister, UserLogin, UserAuth, RequestReset, ResetPasswordToken } from '../interfaces/user.interface';
+import { UserRegister, UserLogin, UserAuth, RequestReset, ResetPasswordToken, RequestNewPassword } from '../interfaces/user.interface';
 import { Router } from '@angular/router';
 import { StorageService } from './storage.service';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
@@ -75,11 +75,15 @@ export class AuthService implements CanActivate{
 
   resetPasswordToken(resetPasswordToken: ResetPasswordToken) {
     return this.http.post(environment.backend + '/user/reset-password-token', resetPasswordToken)
-      // .pipe(
-      //   catchError( (err) => {
-      //     return throwError(err.error.errors);
-      //   })
-      // );
+  }
+
+  newPassword(requestNewPassword: RequestNewPassword) {
+    return this.http.post(environment.backend + '/user/new-password', requestNewPassword)
+    .pipe(
+      catchError( (err) => {
+        return throwError(err.error.errors);
+      })
+    );
   }
 
   canActivate(

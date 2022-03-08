@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SpotValorated } from 'src/app/interfaces/spot.interface';
+import { SpotService } from 'src/app/services/spot.service';
 
 @Component({
   selector: 'app-valorations',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValorationsPage implements OnInit {
 
-  constructor() { }
+  spots: Observable<SpotValorated[]>;
+
+  constructor( private spotService: SpotService ) { }
 
   ngOnInit() {
+    this.spots = this.spotService.getValorations();
+    console.log(this.spots);
+    
   }
 
 }

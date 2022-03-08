@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { ValorationsPageRoutingModule } from './valorations-routing.module';
 
 import { ValorationsPage } from './valorations.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     ValorationsPageRoutingModule
   ],
   declarations: [ValorationsPage]

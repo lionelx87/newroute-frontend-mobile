@@ -1,7 +1,7 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Spot, SpotRecommended } from '../interfaces/spot.interface';
+import { Spot, SpotRecommended, SpotValorated } from '../interfaces/spot.interface';
 import { AuthService } from './auth.service';
 
 
@@ -49,6 +49,10 @@ export class SpotService {
 
   getRecommendations() {
     return this.http.get<SpotRecommended[]>( environment.backend + '/recommendations');
+  }
+
+  getValorations() {
+    return this.http.get<SpotValorated[]>( environment.backend + '/valorations' );
   }
 
 }

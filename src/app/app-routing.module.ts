@@ -52,7 +52,11 @@ const routes: Routes = [
   {
     path: 'new-password/:token',
     loadChildren: () => import('./pages/new-password/new-password.module').then( m => m.NewPasswordPageModule)
+  },  {
+    path: 'valorations',
+    loadChildren: () => import('./pages/valorations/valorations.module').then( m => m.ValorationsPageModule)
   },
+
 
 ];
 

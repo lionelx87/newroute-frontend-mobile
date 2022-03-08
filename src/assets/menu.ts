@@ -3,7 +3,7 @@ export const menu = [
     { title: 'categorías', icon: 'albums-outline', redirectTo: '/categories' },
     { title: 'Modo de navegación', icon: 'color-wand-outline', redirectTo: '' },
     { title: 'recomendados', icon: 'thumbs-up-outline', redirectTo: '/recommendations' },
-    { title: 'mejor valorados', icon: 'star-outline', redirectTo: '' },
+    { title: 'mejor valorados', icon: 'star-outline', redirectTo: '/valorations' },
     { title: 'mi recorrido', icon: 'location-outline', redirectTo: '/tour' },
     { title: 'perfil viajero', icon: 'walk-outline', redirectTo: '' },
     { title: 'estadisticas', icon: 'stats-chart-outline', redirectTo: '' },

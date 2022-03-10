@@ -44,4 +44,7 @@ export interface SpotValorated {
     images: string[];
     category: string;
     total: number;
+    rating: string;
+    users: number;
+    prueba: string[];
 }

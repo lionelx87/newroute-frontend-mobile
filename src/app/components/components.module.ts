@@ -9,6 +9,7 @@ import { ValorationComponent } from './valoration/valoration.component';
 import { ResetFormComponent } from './forms/reset-form/reset-form.component';
 import { SendCodeFormComponent } from './forms/send-code-form/send-code-form.component';
 import { NewPasswordFormComponent } from './forms/new-password-form/new-password-form.component';
+import { RatingComponent } from './rating/rating.component';
 
 
 
@@ -20,7 +21,8 @@ import { NewPasswordFormComponent } from './forms/new-password-form/new-password
     ResetFormComponent,
     ValorationComponent,
     SendCodeFormComponent,
-    NewPasswordFormComponent
+    NewPasswordFormComponent,
+    RatingComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { NewPasswordFormComponent } from './forms/new-password-form/new-password
     ResetFormComponent,
     ValorationComponent,
     SendCodeFormComponent,
-    NewPasswordFormComponent
+    NewPasswordFormComponent,
+    RatingComponent
   ]
 })
 export class ComponentsModule { }

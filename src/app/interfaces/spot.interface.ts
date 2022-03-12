@@ -38,3 +38,13 @@ export interface SpotRecommended {
     category: string;
     total: number;
 }
+
+export interface SpotValorated {
+    name: string;
+    images: string[];
+    category: string;
+    total: number;
+    rating: string;
+    users: number;
+    prueba: string[];
+}

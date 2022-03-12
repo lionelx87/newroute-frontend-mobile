@@ -1,5 +1,14 @@
 :host {
     display: flex;
+
+    .rating__container {
+        display: flex;
+        align-items: center;
+
+        .rating__text {
+            margin-right: 0.25rem;
+        }
+    }
     
     ion-icon {
         color: #F5E400;

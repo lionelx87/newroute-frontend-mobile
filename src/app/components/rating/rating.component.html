@@ -1,1 +1,6 @@
-<ion-icon *ngFor="let star of stars" [name]="star"></ion-icon>
+<div class="rating__container">
+    <span class="rating__text">{{ rating }}</span>
+    <div>
+        <ion-icon *ngFor="let star of stars" [name]="star"></ion-icon>
+    </div>
+</div>

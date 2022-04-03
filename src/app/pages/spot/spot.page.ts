@@ -10,6 +10,7 @@ import { SpotService } from '../../services/spot.service';
 import { ValorationComponent } from '../../components/valoration/valoration.component';
 import { CommentsPage } from '../comments/comments.page';
 import { MessageService } from '../../services/message.service';
+import { ImageGalleryPage } from '../image-gallery/image-gallery.page';
 
 
 @Component({
@@ -90,6 +91,13 @@ export class SpotPage implements OnInit {
         spots: [this.spot],
         mode: Mode.BY_PROXIMITY
       }
+    });
+    return await modal.present();
+  }
+
+  async viewGallery() {
+    const modal = await this.modalCtrl.create({
+      component: ImageGalleryPage
     });
     return await modal.present();
   }

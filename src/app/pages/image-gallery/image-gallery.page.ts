@@ -13,6 +13,10 @@ export class ImageGalleryPage implements OnInit {
   ngOnInit() {
   }
 
+  openPreview() {
+    
+  }
+
   close() {
     this.modalCtrl.dismiss();
    }

@@ -5,5 +5,9 @@
 </ion-fab>
 
 <ion-content [fullscreen]=true>
-  Gallery Works!
+  <swiper>
+    <ng-template swiperSlide *ngFor="let img of [1,2,3,4]">
+      <img src="assets/img/background.png" tappable (click)="openPreview()" >
+    </ng-template>
+  </swiper>
 </ion-content>

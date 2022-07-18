@@ -97,7 +97,8 @@ export class SpotPage implements OnInit {
 
   async viewGallery() {
     const modal = await this.modalCtrl.create({
-      component: ImageGalleryPage
+      component: ImageGalleryPage,
+      componentProps: { spot: this.spot }
     });
     return await modal.present();
   }

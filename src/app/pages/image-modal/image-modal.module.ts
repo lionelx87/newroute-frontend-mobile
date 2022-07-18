@@ -10,12 +10,15 @@ import { ImageModalPage } from './image-modal.page';
 
 import { SwiperModule } from 'swiper/angular';
 
+import { PipesModule } from '../../pipes/pipes.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     SwiperModule,
+    PipesModule,
     ImageModalPageRoutingModule
   ],
   declarations: [ImageModalPage]

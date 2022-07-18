@@ -8,6 +8,7 @@ import { ImageGalleryPageRoutingModule } from './image-gallery-routing.module';
 
 import { ImageGalleryPage } from './image-gallery.page';
 import { SwiperModule } from 'swiper/angular';
+import { PipesModule } from '../../pipes/pipes.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SwiperModule } from 'swiper/angular';
     FormsModule,
     IonicModule,
     SwiperModule,
+    PipesModule,
     ImageGalleryPageRoutingModule
   ],
   declarations: [ImageGalleryPage]

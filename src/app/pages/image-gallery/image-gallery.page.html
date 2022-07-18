@@ -4,10 +4,10 @@
   </ion-fab-button>
 </ion-fab>
 
-<ion-content [fullscreen]=true>
+<ion-content [fullscreen]=true class="background-screen">
   <swiper [config]="config">
-    <ng-template swiperSlide *ngFor="let img of [1,2,3,4]">
-      <img src="assets/img/background.png" tappable (click)="openPreview(img)" >
+    <ng-template swiperSlide *ngFor="let img of spot.images">
+      <img [src]="img | composeUrl" tappable (click)="openPreview(img)" >
     </ng-template>
   </swiper>
 </ion-content>

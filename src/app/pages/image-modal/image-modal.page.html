@@ -1,14 +1,8 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>image-modal</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
   <swiper [config]="config" #swiper>
     <ng-template swiperSlide>
       <div class="swiper-zoom-container">
-        <img src="assets/img/background.png" alt="">
+        <img [src]="img | composeUrl" alt="">
       </div>
     </ng-template>
   </swiper>

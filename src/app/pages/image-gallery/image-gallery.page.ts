@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular'
+import { Spot } from 'src/app/interfaces/spot.interface';
 import { SwiperOptions } from 'swiper';
 import { ImageModalPage } from '../image-modal/image-modal.page';
 
@@ -9,6 +10,8 @@ import { ImageModalPage } from '../image-modal/image-modal.page';
   styleUrls: ['./image-gallery.page.scss'],
 })
 export class ImageGalleryPage implements OnInit {
+  
+  @Input() spot: Spot;
 
   config: SwiperOptions = {
     slidesPerView: 1.5,

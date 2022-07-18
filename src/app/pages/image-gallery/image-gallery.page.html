@@ -1,0 +1,13 @@
+<ion-fab vertical="top" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="close()">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-content [fullscreen]=true class="background-screen">
+  <swiper [config]="config">
+    <ng-template swiperSlide *ngFor="let img of spot.images">
+      <img [src]="img | composeUrl" tappable (click)="openPreview(img)" >
+    </ng-template>
+  </swiper>
+</ion-content>

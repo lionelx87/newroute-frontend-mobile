@@ -56,6 +56,14 @@ const routes: Routes = [
     path: 'valorations',
     loadChildren: () => import('./pages/valorations/valorations.module').then( m => m.ValorationsPageModule)
   },
+  {
+    path: 'image-gallery',
+    loadChildren: () => import('./pages/image-gallery/image-gallery.module').then( m => m.ImageGalleryPageModule)
+  },
+  {
+    path: 'image-modal',
+    loadChildren: () => import('./pages/image-modal/image-modal.module').then( m => m.ImageModalPageModule)
+  },
 
 
 ];

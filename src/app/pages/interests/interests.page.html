@@ -1,0 +1,16 @@
+<app-header title="mis intereses"></app-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let entry of interests">
+      <ion-label>{{entry.label | titlecase}}</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="entry.checked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" size="large" class="ion-no-margin" (click)="save()">
+      Guardar
+  </ion-button>
+</ion-footer>

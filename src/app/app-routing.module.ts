@@ -64,6 +64,10 @@ const routes: Routes = [
     path: 'image-modal',
     loadChildren: () => import('./pages/image-modal/image-modal.module').then( m => m.ImageModalPageModule)
   },
+  {
+    path: 'interests',
+    loadChildren: () => import('./pages/interests/interests.module').then( m => m.InterestsPageModule)
+  },
 
 
 ];

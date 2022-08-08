@@ -20,6 +20,18 @@ export class GeolocationService {
 
   constructor() {
     this.realPosition();
+    const myPosition = { lat: -46.453193, lng: -67.529532 };
+    // const place = { lat: -46.447752, lng: -67.522622 };
+    const place = { lat: -46.441774, lng: -67.517348 };
+
+    const R = 3958.8;
+    var rlat1 = myPosition.lat * (Math.PI / 180);
+    var rlat2 = place.lat * (Math.PI / 180);
+    var difflat = rlat2-rlat1;
+    var difflon = (place.lng - myPosition.lng) * (Math.PI/180);
+    var d = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat/2)*Math.sin(difflat/2)+Math.cos(rlat1)*Math.cos(rlat2)*Math.sin(difflon/2)*Math.sin(difflon/2)));
+    const km = d * 1.609;
+    console.log('Distance: ', km);
   }
 
   private async realPosition() {

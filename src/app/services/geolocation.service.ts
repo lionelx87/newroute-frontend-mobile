@@ -2,6 +2,7 @@ import { ElementRef, Injectable } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 import { environment } from '../../environments/environment';
 import { Spot } from '../interfaces/spot.interface';
+import { Point } from '../interfaces/geolocation.interface';
 
 const { Geolocation } = Plugins;
 
@@ -20,18 +21,10 @@ export class GeolocationService {
 
   constructor() {
     this.realPosition();
-    const myPosition = { lat: -46.453193, lng: -67.529532 };
+    // const myPosition = { lat: -46.453193, lng: -67.529532 };
     // const place = { lat: -46.447752, lng: -67.522622 };
-    const place = { lat: -46.441774, lng: -67.517348 };
-
-    const R = 3958.8;
-    var rlat1 = myPosition.lat * (Math.PI / 180);
-    var rlat2 = place.lat * (Math.PI / 180);
-    var difflat = rlat2-rlat1;
-    var difflon = (place.lng - myPosition.lng) * (Math.PI/180);
-    var d = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat/2)*Math.sin(difflat/2)+Math.cos(rlat1)*Math.cos(rlat2)*Math.sin(difflon/2)*Math.sin(difflon/2)));
-    const km = d * 1.609;
-    console.log('Distance: ', km);
+    // const place = { lat: -46.441774, lng: -67.517348 };
+    // console.log('probandooo: ', this.haversineDistance(myPosition, place));
   }
 
   private async realPosition() {
@@ -43,7 +36,7 @@ export class GeolocationService {
     this.mapRef = mapRef;
   }
 
-  setPosition(position: { lat: number, lng: number }) {
+  setPosition(position: Point) {
     this.position = new google.maps.LatLng(position.lat, position.lng);
   }
 
@@ -96,6 +89,17 @@ export class GeolocationService {
     });
 
   }
+
+  private haversineDistance(origin: Point, destiny: Point): number {
+    const R = 3958.8;
+    const rlat1 = origin.lat * (Math.PI / 180);
+    const rlat2 = destiny.lat * (Math.PI / 180);
+    const difflat = rlat2 - rlat1;
+    const difflon = (destiny.lng - origin.lng) * (Math.PI/180);
+    const distance = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat/2)*Math.sin(difflat/2)+Math.cos(rlat1)*Math.cos(rlat2)*Math.sin(difflon/2)*Math.sin(difflon/2)));
+    const km = distance * 1.609;
+    return km;
+  } 
 
 
 

@@ -68,6 +68,10 @@ const routes: Routes = [
     path: 'interests',
     loadChildren: () => import('./pages/interests/interests.module').then( m => m.InterestsPageModule)
   },
+  {
+    path: 'visit-register',
+    loadChildren: () => import('./pages/visit-register/visit-register.module').then( m => m.VisitRegisterPageModule)
+  },
 
 
 ];

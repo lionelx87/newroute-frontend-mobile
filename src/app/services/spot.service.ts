@@ -55,4 +55,8 @@ export class SpotService {
     return this.http.get<SpotValorated[]>( environment.backend + '/valorations' );
   }
 
+  getSpots() {
+    return this.http.get<Spot[]>( environment.backend + '/spots' );
+  }
+
 }

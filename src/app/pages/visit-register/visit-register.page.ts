@@ -23,15 +23,30 @@ export class VisitRegisterPage implements OnInit {
       // location spoofing
       const myPosition: Point = { lat: -46.453193, lng: -67.529532 };
       this.spots = of(
-        spots.filter((spot) =>
-          this.geoService.inProximity(
-            this.geoService.haversineDistance(myPosition, {
-              lat: Number(spot.latitude),
-              lng: Number(spot.longitude),
-            })
+        spots
+          .filter((spot) =>
+            this.geoService.inProximity(
+              this.geoService.haversineDistance(myPosition, {
+                lat: Number(spot.latitude),
+                lng: Number(spot.longitude),
+              })
+            )
           )
-        )
+          .map((spot) => {
+            spot.disabled = false;
+            spot.checked = false;
+            return spot;
+          })
       );
+    });
+  }
+
+  register(): void {
+    this.spots.subscribe((spots) => {
+      const spotsToRegister: number[] = spots
+        .filter((spot) => spot.checked && !spot.disabled)
+        .map((spot) => spot.id);
+      console.log(spotsToRegister);
     });
   }
 }

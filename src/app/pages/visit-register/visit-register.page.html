@@ -2,18 +2,18 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let spot of spots | async">
+    <ion-item *ngFor="let spot of spots | async" [disabled]="spot.disabled">
       <ion-thumbnail slot="start">
         <img class="spot__image" [src]="spot.images[0] | composeUrl">
       </ion-thumbnail>
       <ion-label>{{spot.name | titlecase}}</ion-label>
-      <ion-checkbox slot="end"></ion-checkbox>
+      <ion-checkbox slot="end" [(ngModel)]="spot.checked"></ion-checkbox>
     </ion-item>
   </ion-list>
 </ion-content>
 
 <ion-footer>
-  <ion-button expand="full" size="large" class="ion-no-margin">
+  <ion-button expand="full" size="large" class="ion-no-margin" (click)="register()">
     Guardar
   </ion-button>
 </ion-footer>

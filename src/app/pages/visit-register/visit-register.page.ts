@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable, of } from "rxjs";
+import { take } from "rxjs/operators";
 import { Point } from "src/app/interfaces/geolocation.interface";
 import { Spot } from "src/app/interfaces/spot.interface";
 import { GeolocationService } from "src/app/services/geolocation.service";
@@ -39,6 +40,22 @@ export class VisitRegisterPage implements OnInit {
           })
       );
     });
+  }
+
+  // TODO: best approach
+  get disabled(): boolean {
+    if (this.spots !== undefined) {
+      let disabled = false;
+      this.spots
+        .pipe(take(1))
+        .subscribe(
+          (spots) =>
+            (disabled = spots
+              .filter((spot) => !spot.disabled)
+              .every((spot) => !spot.checked))
+        );
+      return disabled;
+    }
   }
 
   register(): void {

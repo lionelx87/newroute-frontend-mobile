@@ -1,5 +1,14 @@
 <app-header title="Visitas"></app-header>
 
 <ion-content>
-
-</ion-content>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let spot of spots | async">
+      <div class="slide">
+        <img [src]="spot.images[0] | composeUrl" />
+        <h2 class="visit__title">{{ spot.name_es }}</h2>
+        <p>{{ spot.description_es }}</p>
+        <p class="visit-date__text">Visito el lugar {{ spot.diff_for_humans }}</p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>+

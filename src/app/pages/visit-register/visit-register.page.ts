@@ -73,7 +73,7 @@ export class VisitRegisterPage implements OnInit {
         .filter((spot) => spot.checked && !spot.disabled)
         .map((spot) => spot.id);
       this.visitService.register(visits).subscribe( () => {
-        this.loading = true;
+        this.loading = false;
         this.msgService.present("Visita Registrada!");
         this.route.navigate(["/"]);
       });

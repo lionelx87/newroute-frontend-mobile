@@ -1,15 +1,25 @@
 <app-header title="registrar visita"></app-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let spot of spots | async" [disabled]="spot.disabled">
-      <ion-thumbnail slot="start">
-        <img class="spot__image" [src]="spot.images[0] | composeUrl">
-      </ion-thumbnail>
-      <ion-label>{{spot.name | titlecase}}</ion-label>
-      <ion-checkbox slot="end" [(ngModel)]="spot.checked"></ion-checkbox>
-    </ion-item>
-  </ion-list>
+  <div *ngIf="!(spots | async)?.length; else spotsList" class="no-visits__container">
+    <img src="assets/img/no-visits.png" alt="">
+    <span>No encontramos lugares turisticos cercanos</span>
+  </div>
+
+  <ng-template #spotsList>
+    <ion-list>
+      <ion-item *ngFor="let spot of spots | async" [disabled]="spot.disabled">
+        <ion-thumbnail slot="start">
+          <img class="spot__image" [src]="spot.images[0] | composeUrl">
+        </ion-thumbnail>
+        <ion-label>{{spot.name | titlecase}}</ion-label>
+        <ion-checkbox slot="end" [(ngModel)]="spot.checked"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+  
+
+  
 </ion-content>
 
 <ion-footer>

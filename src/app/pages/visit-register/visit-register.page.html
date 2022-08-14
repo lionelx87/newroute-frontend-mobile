@@ -14,6 +14,7 @@
 
 <ion-footer>
   <ion-button expand="full" size="large" class="ion-no-margin" (click)="register()" [disabled]="disabled">
-    Guardar
+    <span *ngIf="!loading">Guardar</span>
+    <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
   </ion-button>
 </ion-footer>

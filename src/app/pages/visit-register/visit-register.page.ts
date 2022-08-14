@@ -1,10 +1,13 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { Observable, of } from "rxjs";
 import { take } from "rxjs/operators";
 import { Point } from "src/app/interfaces/geolocation.interface";
 import { Spot } from "src/app/interfaces/spot.interface";
 import { GeolocationService } from "src/app/services/geolocation.service";
+import { MessageService } from "src/app/services/message.service";
 import { SpotService } from "src/app/services/spot.service";
+import { VisitService } from "src/app/services/visit.service";
 
 @Component({
   selector: "app-visit-register",
@@ -13,10 +16,15 @@ import { SpotService } from "src/app/services/spot.service";
 })
 export class VisitRegisterPage implements OnInit {
   spots: Observable<Spot[]>;
+  loading: boolean = false;
 
+  // TODO: remote spot.disabled
   constructor(
     private spotService: SpotService,
-    private geoService: GeolocationService
+    private geoService: GeolocationService,
+    private visitService: VisitService,
+    private route: Router,
+    private msgService: MessageService
   ) {}
 
   async ngOnInit() {
@@ -59,11 +67,16 @@ export class VisitRegisterPage implements OnInit {
   }
 
   register(): void {
+    this.loading = true;
     this.spots.subscribe((spots) => {
-      const spotsToRegister: number[] = spots
+      const visits: number[] = spots
         .filter((spot) => spot.checked && !spot.disabled)
         .map((spot) => spot.id);
-      console.log(spotsToRegister);
+      this.visitService.register(visits).subscribe( () => {
+        this.loading = true;
+        this.msgService.present("Visita Registrada!");
+        this.route.navigate(["/"]);
+      });
     });
   }
 }

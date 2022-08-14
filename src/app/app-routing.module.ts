@@ -72,6 +72,10 @@ const routes: Routes = [
     path: 'visit-register',
     loadChildren: () => import('./pages/visit-register/visit-register.module').then( m => m.VisitRegisterPageModule)
   },
+  {
+    path: 'visits',
+    loadChildren: () => import('./pages/visits/visits.module').then( m => m.VisitsPageModule)
+  },
 
 
 ];

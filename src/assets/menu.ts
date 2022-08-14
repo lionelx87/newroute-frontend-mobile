@@ -6,7 +6,7 @@ export const menu = [
     { title: 'mejor valorados', icon: 'star-outline', redirectTo: '/valorations' },
     { title: 'mi recorrido', icon: 'location-outline', redirectTo: '/tour' },
     { title: 'registrar visita', icon: 'checkmark-done-outline', redirectTo: '/visit-register' },
-    { title: 'estadisticas', icon: 'stats-chart-outline', redirectTo: '' },
+    { title: 'estadisticas', icon: 'stats-chart-outline', redirectTo: '/visits' },
     // { title: 'ranking usuarios', icon: 'people-outline', redirectTo: '' },
     { title: 'ajustes', icon: 'options-outline', redirectTo: '' }
 ];

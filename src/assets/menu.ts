@@ -5,8 +5,8 @@ export const menu = [
     { title: 'recomendados', icon: 'thumbs-up-outline', redirectTo: '/recommendations' },
     { title: 'mejor valorados', icon: 'star-outline', redirectTo: '/valorations' },
     { title: 'mi recorrido', icon: 'location-outline', redirectTo: '/tour' },
-    { title: 'perfil viajero', icon: 'walk-outline', redirectTo: '' },
+    { title: 'registrar visita', icon: 'checkmark-done-outline', redirectTo: '/visit-register' },
     { title: 'estadisticas', icon: 'stats-chart-outline', redirectTo: '' },
-    { title: 'ranking usuarios', icon: 'people-outline', redirectTo: '' },
+    // { title: 'ranking usuarios', icon: 'people-outline', redirectTo: '' },
     { title: 'ajustes', icon: 'options-outline', redirectTo: '' }
 ];

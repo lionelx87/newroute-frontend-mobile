@@ -11,7 +11,9 @@ export interface Spot {
     comments: Comment[];
     priority?: {
         value: number
-    }
+    },
+    checked?: boolean;
+    disabled?: boolean;
 }
 
 interface Phone {

@@ -1,5 +1,6 @@
 {
-    "home": {
-        "title": "Bienvenido a i18n"
+    "menu": {
+        "access": "acceder",
+        "exit": "salir"
     }
 }

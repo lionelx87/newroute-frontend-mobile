@@ -24,7 +24,7 @@ export class AppComponent {
 
   get userLogged() { return this.auth.isLogin(); }
 
-  get menu() { return this.menuSelected; }
+  get menu() { return this.translateService.currentLang === "es" ? menu_es : menu_en; }
 
   constructor(
     private platform: Platform,
@@ -37,15 +37,8 @@ export class AppComponent {
     this.app = environment.app;
     this.version = environment.version;
     this.translateService.addLangs(this.supportLanguages);
-    this.translateService.setDefaultLang("en");
-
-    const browserlang = this.translateService.getBrowserLang();
-    // this.translateService.use(browserlang);
+    this.translateService.setDefaultLang("es");
     this.translateService.use("es");
-    this.menuSelected = menu_es;
-    // setTimeout(() => {
-    //   this.menuSelected = menu_en;
-    // }, 10000);
   }
 
   initializeApp() {

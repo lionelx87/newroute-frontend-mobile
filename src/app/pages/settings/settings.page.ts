@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-settings',
@@ -7,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsPage implements OnInit {
 
-  constructor() { }
+  constructor(private translateService: TranslateService) { }
 
   ngOnInit() {
+    this.translateService.use("es");
   }
 
   segmentChanged(segmentChanged: CustomEvent) {
     const { value } = segmentChanged.detail;
+    this.translateService.use(value);
   }
 
 }

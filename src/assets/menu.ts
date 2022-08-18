@@ -8,7 +8,7 @@ export const menu_es = [
     { title: 'registrar visita', icon: 'checkmark-done-outline', redirectTo: '/visit-register' },
     { title: 'estadisticas', icon: 'stats-chart-outline', redirectTo: '/visits' },
     // { title: 'ranking usuarios', icon: 'people-outline', redirectTo: '' },
-    { title: 'ajustes', icon: 'options-outline', redirectTo: '/settings' }
+    { title: 'preferencias', icon: 'options-outline', redirectTo: '/settings' }
 ];
 
 export const menu_en = [

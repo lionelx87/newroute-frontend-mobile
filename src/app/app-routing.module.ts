@@ -76,6 +76,10 @@ const routes: Routes = [
     path: 'visits',
     loadChildren: () => import('./pages/visits/visits.module').then( m => m.VisitsPageModule)
   },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
 
 
 ];

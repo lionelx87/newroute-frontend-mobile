@@ -2,5 +2,13 @@
     "menu": {
         "access": "access",
         "exit": "exit"
+    },
+    "settings": {
+        "title": "settings",
+        "option1": {
+            "title": "Language",
+            "value1": "Spanish",
+            "value2": "English"
+        }
     }
 }

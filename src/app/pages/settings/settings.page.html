@@ -1,16 +1,16 @@
-<app-header title="preferencias"></app-header>
+<app-header title="{{ 'settings.title' | translate }}"></app-header>
 
 <ion-content class="settings__container">
   <ion-list>
     <ion-item>
-      <span>Idioma</span>
+      <span>{{ 'settings.option1.title' | translate }}</span>
       <ion-toolbar mode="ios">
         <ion-segment value="es" (ionChange)="segmentChanged($event)">
           <ion-segment-button value="es">
-            <ion-label>Español</ion-label>
+            <ion-label>{{ 'settings.option1.value1' | translate }}</ion-label>
           </ion-segment-button>
           <ion-segment-button value="en">
-            <ion-label>Inglés</ion-label>
+            <ion-label>{{ 'settings.option1.value2' | translate }}</ion-label>
           </ion-segment-button>
         </ion-segment>
       </ion-toolbar>

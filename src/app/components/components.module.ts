@@ -10,6 +10,7 @@ import { ResetFormComponent } from './forms/reset-form/reset-form.component';
 import { SendCodeFormComponent } from './forms/send-code-form/send-code-form.component';
 import { NewPasswordFormComponent } from './forms/new-password-form/new-password-form.component';
 import { RatingComponent } from './rating/rating.component';
+import { TranslateModule } from "@ngx-translate/core";
 
 
 
@@ -27,6 +28,7 @@ import { RatingComponent } from './rating/rating.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    TranslateModule,
     IonicModule
   ],
   exports: [

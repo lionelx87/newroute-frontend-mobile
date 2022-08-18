@@ -1,6 +1,6 @@
 <ion-card class="centered-box">
   <ion-card-header color="primary" class="ion-text-center">
-    <ion-card-title>New Route - Ingreso</ion-card-title>
+    <ion-card-title>{{ 'access.login.form.title' | translate }}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
 
@@ -9,7 +9,7 @@
       <ion-list>
   
         <ion-item>
-          <ion-label position="floating">Correo <ion-text color="danger">*</ion-text>
+          <ion-label position="floating">{{ 'access.login.form.email' | translate }} <ion-text color="danger">*</ion-text>
           </ion-label>
           <ion-input formControlName="email" autofocus inputmode="email" type="email" required></ion-input>
         </ion-item>
@@ -20,7 +20,7 @@
         </div>
   
         <ion-item>
-          <ion-label position="floating">Contraseña <ion-text color="danger">*</ion-text>
+          <ion-label position="floating">{{ 'access.login.form.password' | translate }} <ion-text color="danger">*</ion-text>
           </ion-label>
           <ion-input formControlName="password" type="password" required></ion-input>
         </ion-item>
@@ -33,11 +33,11 @@
       </ion-list>
   
       <ion-button color="secondary" size="small" fill="clear" (click)="toResetPassword()">
-        ¿Olvidó su contraseña?
+        {{ 'access.login.form.rememberme' | translate }}
       </ion-button>
   
       <ion-button type="submit" [disabled]="form.invalid" class="ion-margin-top" expand="full" shape="round">
-        <span *ngIf="!loading">Ingresar</span>
+        <span *ngIf="!loading">{{ 'access.login.form.button' | translate }}</span>
         <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
       </ion-button>
 

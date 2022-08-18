@@ -10,5 +10,39 @@
             "value1": "Español",
             "value2": "Inglés"
         }
+    },
+    "access": {
+        "login": {
+            "title": "Ingreso",
+            "form": {
+                "title": "New Route - Ingreso",
+                "email": "Correo",
+                "password": "Contraseña",
+                "rememberme": "¿Olvidó su Contraseña?",
+                "button": "Ingresar"
+            }
+        },
+        "register": {
+            "title": "Registro",
+            "form": {
+                "title": "Crea tu cuenta",
+                "subtitle": "Forma parte de la comunidad Caletense",
+                "name": "Nombre",
+                "email": "Correo",
+                "password": "Contraseña",
+                "confirmationPassword": "Confirme su contraseña",
+                "button": "Registrarme"
+            }
+        },
+        "reset": {
+            "title": "Reseteo Contraseña",
+            "form": {
+                "title": "¿Ha olvidado su contraseña?",
+                "subtitle": "No se preocupe. Sólo tiene que colocar su correo electrónico y le enviaremos un código para restablecer su contraseña",
+                "email": "Correo",
+                "code": "Tengo el código",
+                "button": "Enviar Correo"
+            }
+        }
     }
 }

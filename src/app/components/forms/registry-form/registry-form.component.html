@@ -1,7 +1,7 @@
 <ion-card class="centered-box">
   <ion-card-header color="primary">
-    <ion-card-subtitle>Forma parte de la comunidad Caletense</ion-card-subtitle>
-    <ion-card-title>Crea tu cuenta</ion-card-title>
+    <ion-card-subtitle>{{ 'access.register.form.subtitle' | translate }}</ion-card-subtitle>
+    <ion-card-title>{{ 'access.register.form.title' | translate }}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
 
@@ -10,7 +10,7 @@
 
         <!-- NAME -->
         <ion-item>
-          <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text>
+          <ion-label position="floating">{{ 'access.register.form.name' | translate }} <ion-text color="danger">*</ion-text>
           </ion-label>
           <ion-input formControlName="name" autofocus required></ion-input>
         </ion-item>
@@ -22,7 +22,7 @@
 
         <!-- EMAIL -->
         <ion-item>
-          <ion-label position="floating">Correo <ion-text color="danger">*</ion-text>
+          <ion-label position="floating">{{ 'access.register.form.email' | translate }} <ion-text color="danger">*</ion-text>
           </ion-label>
           <ion-input formControlName="email" inputmode="email" type="email" required></ion-input>
         </ion-item>
@@ -34,7 +34,7 @@
 
         <!-- PASSWORD -->
         <ion-item>
-          <ion-label position="floating">Contraseña <ion-text color="danger">*</ion-text>
+          <ion-label position="floating">{{ 'access.register.form.password' | translate }} <ion-text color="danger">*</ion-text>
           </ion-label>
           <ion-input formControlName="password" type="password" required></ion-input>
         </ion-item>
@@ -46,7 +46,7 @@
 
         <!-- CONFIRM PASSWORD -->
         <ion-item>
-          <ion-label position="floating">Confirme su contraseña <ion-text color="danger">*</ion-text>
+          <ion-label position="floating">{{ 'access.register.form.confirmationPassword' | translate }} <ion-text color="danger">*</ion-text>
           </ion-label>
           <ion-input formControlName="password_confirmation" type="password" required></ion-input>
         </ion-item>
@@ -60,7 +60,7 @@
 
       <!-- SUBMIT -->
       <ion-button type="submit" [disabled]="form.invalid" class="ion-margin-top" expand="full" shape="round">
-        <span *ngIf="!loading">Registrarme</span>
+        <span *ngIf="!loading">{{ 'access.register.form.button' | translate }}</span>
         <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
       </ion-button>
 

@@ -10,5 +10,39 @@
             "value1": "Spanish",
             "value2": "English"
         }
+    },
+    "access": {
+        "login": {
+            "title": "Login",
+            "form": {
+                "title": "New Route - Login",
+                "email": "Email",
+                "password": "Password",
+                "rememberme": "Forgot your password?",
+                "button": "Login"
+            }
+        },
+        "register": {
+            "title": "Register",
+            "form": {
+                "title": "Create your account",
+                "subtitle": "Become part of the Caletense community",
+                "name": "Name",
+                "email": "Email",
+                "password": "Password",
+                "confirmationPassword": "Confirm your password",
+                "button": "Register"
+            }
+        },
+        "reset": {
+            "title": "Password Reset",
+            "form": {
+                "title": "Have you forgotten your password?",
+                "subtitle": "Don't worry. Just enter your email address and we'll send you a code to reset your password.",
+                "email": "Email",
+                "code": "I have the code",
+                "button": "Send Email"
+            }
+        }
     }
 }

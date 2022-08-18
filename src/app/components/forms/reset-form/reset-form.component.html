@@ -1,17 +1,16 @@
 <ion-card class="centered-box">
   <ion-card-header color="primary" class="ion-text-center">
-    <ion-card-title>¿Ha olvidado su contraseña?</ion-card-title>
+    <ion-card-title>{{ 'access.reset.form.title' | translate }}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
     <p class="text--information">
-      No se preocupe. Sólo tienes que colocar su correo electrónico y le
-      enviaremos un código para restablecer su contraseña
+      {{ 'access.reset.form.subtitle' | translate }}
     </p>
     <form [formGroup]="form" novalidate (ngSubmit)="resetPassword($event)">
       <ion-list>
         <ion-item>
           <ion-label position="floating"
-            >Correo <ion-text color="danger">*</ion-text>
+            >{{ 'access.reset.form.email' | translate }} <ion-text color="danger">*</ion-text>
           </ion-label>
           <ion-input
             formControlName="email"
@@ -31,7 +30,7 @@
       </ion-list>
 
       <ion-button color="secondary" size="small" fill="clear" (click)="toSendCode()">
-        Tengo el código
+        {{ 'access.reset.form.code' | translate }}
       </ion-button>
 
       <ion-button
@@ -41,7 +40,7 @@
         expand="full"
         shape="round"
       >
-        <span *ngIf="!loading">Enviar Correo</span>
+        <span *ngIf="!loading">{{ 'access.reset.form.button' | translate }}</span>
         <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
       </ion-button>
 

@@ -43,6 +43,25 @@
                 "code": "Tengo el código",
                 "button": "Enviar Correo"
             }
+        },
+        "sendCode": {
+            "title": "Envío Código",
+            "form": {
+                "title": "Código de Reseteo",
+                "subtitle": "Ingrese el código que recibió en su correo electrónico para resetear su contraseña",
+                "code": "Código",
+                "button": "Enviar Código"
+            }
+        },
+        "newPassword": {
+            "title": "Nueva Contraseña",
+            "form": {
+                "title": "Restablezca su contraseña",
+                "subtitle": "Escriba su nueva contraseña y confirmela a continuación. Recuerde que debe ser segura ;)",
+                "password": "Contraseña",
+                "confirmationPassword": "Confirme su contraseña",
+                "button": "Restablecer"
+            }
         }
     }
 }

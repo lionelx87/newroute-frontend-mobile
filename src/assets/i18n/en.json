@@ -43,6 +43,25 @@
                 "code": "I have the code",
                 "button": "Send Email"
             }
+        },
+        "sendCode": {
+            "title": "Send Code",
+            "form": {
+                "title": "Reset Code",
+                "subtitle": "Enter the code you received in your email to reset your password.",
+                "code": "Code",
+                "button": "Send Code"
+            }
+        },
+        "newPassword": {
+            "title": "New Password",
+            "form": {
+                "title": "Reset your password",
+                "subtitle": "Enter your new password and confirm it below. Remember it must be secure ;)",
+                "password": "Password",
+                "confirmationPassword": "Confirm your password",
+                "button": "Reset"
+            }
         }
     }
 }

@@ -66,5 +66,21 @@
     },
     "categories": {
         "title": "Categories"
+    },
+    "spots": {
+       "reviews": "reviews",
+       "tour": "Tour",
+       "map": "Map",
+       "gallery": "Gallery",
+       "rate": "rate",
+       "phone": "It does not have",
+       "comments": "Comments"
+    },
+    "gallery": {
+        "modal": {
+            "zoomOut": "Zoom Out",
+            "zoomIn": "Zoom In",
+            "close": "Close"
+        }
     }
 }

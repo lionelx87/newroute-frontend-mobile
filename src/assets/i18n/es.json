@@ -66,5 +66,21 @@
     },
     "categories": {
         "title": "Categorías"
+    },
+    "spots": {
+       "reviews": "reseñas",
+       "tour": "Recorrido",
+       "map": "Mapa",
+       "gallery": "Galería",
+       "rate": "valorar",
+       "phone": "No posee",
+       "comments": "Comentarios"
+    },
+    "gallery": {
+        "modal": {
+            "zoomOut": "Alejar",
+            "zoomIn": "Acercar",
+            "close": "Cerrar"
+        }
     }
 }

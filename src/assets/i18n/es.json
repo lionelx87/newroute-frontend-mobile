@@ -82,5 +82,9 @@
             "zoomIn": "Acercar",
             "close": "Cerrar"
         }
+    },
+    "myInterests": {
+        "title": "Mis Intereses",
+        "save": "Guardar"
     }
 }

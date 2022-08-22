@@ -82,5 +82,9 @@
             "zoomIn": "Zoom In",
             "close": "Close"
         }
+    },
+    "myInterests": {
+        "title": "My Interests",
+        "save": "Save"
     }
 }

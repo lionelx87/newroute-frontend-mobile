@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AlertController, IonList, ModalController } from '@ionic/angular';
 import { priorityText, Priority, Mode } from '../../../assets/priority';
 import { MapPage } from '../map/map.page';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class TourPage implements OnInit {
   constructor( private storage: StorageService,
                private router: Router,
                private alertCtrl: AlertController,
-               private modalCtrl: ModalController ) { }
+               private modalCtrl: ModalController,
+               private translateService: TranslateService ) { }
 
   ngOnInit() {
     this.getSpots();
@@ -40,38 +42,38 @@ export class TourPage implements OnInit {
   async changePriority(spot: Spot) {
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
-      header: 'Seleccione prioridad',
+      header: this.translateService.instant('tour.priority.modal.title'),
       message: spot.name,
       inputs: [
         {
           name: 'radio',
           type: 'radio',
-          label: 'Normal',
+          label: this.translateService.instant('tour.priority.modal.option.normal'),
           value: Priority.NORMAL,
           checked: spot.priority.value === Priority.NORMAL ? true : false
         },
         {
           name: 'radio2',
           type: 'radio',
-          label: 'Deseable',
+          label: this.translateService.instant('tour.priority.modal.option.high'),
           value: Priority.HIGH,
           checked: spot.priority.value === Priority.HIGH ? true : false
         },
         {
           name: 'radio3',
           type: 'radio',
-          label: 'Muy Deseable',
+          label: this.translateService.instant('tour.priority.modal.option.highest'),
           value: Priority.VERY_HIGH,
           checked: spot.priority.value === Priority.VERY_HIGH ? true : false
         }
       ],
       buttons: [
         {
-          text: 'Cancelar',
+          text: this.translateService.instant('tour.priority.modal.cancel'),
           role: 'cancel'
         },
         {
-          text: 'Aceptar',
+          text: this.translateService.instant('tour.priority.modal.accept'),
           handler: (value) => {
             spot.priority.value = value;
             this.storage.update(spot);
@@ -95,30 +97,30 @@ export class TourPage implements OnInit {
   async selectMode() {
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
-      header: 'Modo de Recorrido',
+      header: this.translateService.instant('tour.travelMode.title'),
       inputs: [
         {
           name: 'radio',
           type: 'radio',
-          label: 'Por Prioridad',
+          label: this.translateService.instant('tour.travelMode.option.priority'),
           value: Mode.BY_PRIORITY,
           checked: true
         },
         {
           name: 'radio2',
           type: 'radio',
-          label: 'Por Proximidad',
+          label: this.translateService.instant('tour.travelMode.option.proximity'),
           value: Mode.BY_PROXIMITY,
           checked: false
         }
       ],
       buttons: [
         {
-          text: 'Cancelar',
+          text: this.translateService.instant('tour.travelMode.cancel'),
           role: 'cancel'
         },
         {
-          text: 'Comenzar',
+          text: this.translateService.instant('tour.travelMode.accept'),
           handler: async (value) => {
             const modal = await this.modalCtrl.create({
               component: MapPage,

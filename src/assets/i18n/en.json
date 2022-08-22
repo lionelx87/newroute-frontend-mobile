@@ -95,5 +95,31 @@
     "valorations": {
         "title": "Best Rated",
         "detail": "users"
+    },
+    "tour": {
+        "title": "My Tour",
+        "priority": {
+            "title": "Priority",
+            "modal": {
+                "title": "Select priority",
+                "option": {
+                    "normal": "Normal",
+                    "high": "Desirable",
+                    "highest": "Very Desirable"
+                },
+                "cancel": "Cancel",
+                "accept": "Accept"
+            }
+        },
+        "button": "Start",
+        "travelMode": {
+            "title": "Travel Mode",
+            "option": {
+                "priority": "By Priority",
+                "proximity": "By Proximity"
+            },
+            "cancel": "Cancel",
+            "accept": "Start"
+        }
     }
 }

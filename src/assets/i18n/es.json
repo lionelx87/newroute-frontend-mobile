@@ -126,5 +126,9 @@
         "title": "Registrar Visita",
         "noSpots": "No encontramos lugares turisticos cercanos",
         "button": "Guardar"
+    },
+    "visits": {
+        "title": "Visitas",
+        "detail": "Visitó el lugar"
     }
 }

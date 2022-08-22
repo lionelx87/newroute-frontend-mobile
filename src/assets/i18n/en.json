@@ -126,5 +126,9 @@
         "title": "Register Visit",
         "noSpots": "We did not find any tourist sites nearby",
         "button": "Save"
+    },
+    "visits": {
+        "title": "Visits",
+        "detail": "You visited the site"
     }
 }

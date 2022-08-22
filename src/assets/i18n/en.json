@@ -63,5 +63,8 @@
                 "button": "Reset"
             }
         }
+    },
+    "categories": {
+        "title": "Categories"
     }
 }

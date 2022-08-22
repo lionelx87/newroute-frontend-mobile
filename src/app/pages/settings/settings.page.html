@@ -5,7 +5,7 @@
     <ion-item>
       <span>{{ 'settings.option1.title' | translate }}</span>
       <ion-toolbar mode="ios">
-        <ion-segment value="es" (ionChange)="segmentChanged($event)">
+        <ion-segment [value]="lang" (ionChange)="segmentChanged($event)">
           <ion-segment-button value="es">
             <ion-label>{{ 'settings.option1.value1' | translate }}</ion-label>
           </ion-segment-button>

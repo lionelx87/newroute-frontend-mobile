@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,16 +8,19 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
+  lang: string;
 
-  constructor(private translateService: TranslateService) { }
+  constructor(private translateService: TranslateService, private settingsService: SettingsService) { }
 
-  ngOnInit() {
-    this.translateService.use("es");
+  async ngOnInit() {
+    const settings = await this.settingsService.get();
+    this.lang = settings.lang;
   }
 
   segmentChanged(segmentChanged: CustomEvent) {
     const { value } = segmentChanged.detail;
     this.translateService.use(value);
+    this.settingsService.store({ lang: value });
   }
 
 }

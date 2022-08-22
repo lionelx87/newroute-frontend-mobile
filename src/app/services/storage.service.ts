@@ -18,7 +18,7 @@ export class StorageService {
   async all() {
     const spots: Spot[] = [];
     let { keys } = await Storage.keys();
-    keys = keys.filter(key => key !== 'user' && key !== 'interests');
+    keys = keys.filter(key => key !== 'user' && key !== 'interests' && key !== 'settings');
     await keys.forEach( async key => {
       const { value } = await Storage.get({ key });
       spots.push( JSON.parse(value) );

@@ -121,5 +121,10 @@
             "cancel": "Cancel",
             "accept": "Start"
         }
+    },
+    "registerVisits": {
+        "title": "Register Visit",
+        "noSpots": "We did not find any tourist sites nearby",
+        "button": "Save"
     }
 }

@@ -60,7 +60,8 @@ export class SpotService {
   }
 
   getSpots() {
-    return this.http.get<Spot[]>( environment.backend + '/spots' );
+    const params = new HttpParams().set("lang", this.translateService.currentLang);
+    return this.http.get<Spot[]>( environment.backend + '/spots', { params } );
   }
 
 }

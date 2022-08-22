@@ -86,5 +86,14 @@
     "myInterests": {
         "title": "Mis Intereses",
         "save": "Guardar"
+    },
+    "recommendations": {
+        "title": "Recomendados",
+        "detailPart1": "Recomendado por",
+        "detailPart2": "usuarios"
+    },
+    "valorations": {
+        "title": "Mejor Valorados",
+        "detail": "usuarios"
     }
 }

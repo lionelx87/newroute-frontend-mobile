@@ -1,8 +1,9 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Spot, SpotRecommended, SpotValorated } from '../interfaces/spot.interface';
 import { AuthService } from './auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable({
@@ -12,7 +13,8 @@ export class SpotService {
 
   constructor(
     private http: HttpClient,
-    private auth: AuthService
+    private auth: AuthService,
+    private translateService: TranslateService
   ) { }
 
   recommend(spot: Spot) {
@@ -48,11 +50,13 @@ export class SpotService {
   }
 
   getRecommendations() {
-    return this.http.get<SpotRecommended[]>( environment.backend + '/recommendations');
+    const params = new HttpParams().set("lang", this.translateService.currentLang);
+    return this.http.get<SpotRecommended[]>( environment.backend + '/recommendations', { params });
   }
 
   getValorations() {
-    return this.http.get<SpotValorated[]>( environment.backend + '/valorations' );
+    const params = new HttpParams().set("lang", this.translateService.currentLang);
+    return this.http.get<SpotValorated[]>( environment.backend + '/valorations', { params } );
   }
 
   getSpots() {

@@ -1,4 +1,4 @@
-<app-header title="valorados"></app-header>
+<app-header title="{{ 'valorations.title' | translate }}"></app-header>
 
 <ion-content class="ion-padding background-screen"> 
 
@@ -15,7 +15,7 @@
           <ion-row class="ion-justify-content-between ion-align-items-center mt-2">
             <small class="tag ion-text-capitalize">{{ spot.category }}</small>
             <app-rating [rating]="spot.rating"></app-rating>
-            <small>({{ spot.users }} usuarios)</small>
+            <small>({{ spot.users }} {{ 'valorations.detail' | translate }})</small>
           </ion-row>
         </ion-col>
       </ion-row>

@@ -24,7 +24,7 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle *ngFor="let item of menu" [autoHide]="false">
-            <ion-item [routerLink]="item.redirectTo">
+            <ion-item [routerLink]="item.redirectTo" [disabled]="item.redirectTo.includes('visit') && !userLogged">
               <ion-icon slot="start" [name]="item.icon"></ion-icon>
               <ion-label class="ion-text-capitalize">{{ item.title }}</ion-label>
             </ion-item>

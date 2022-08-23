@@ -32,6 +32,8 @@ export class SpotPage implements OnInit {
 
   get checkRate() { return this.opinions.rating === 0 ? 'star-outline' : 'star'; }
 
+  get hasComments() { return this.spot.comments.length > 0; }
+
   constructor( private modalCtrl: ModalController,
                private storage: StorageService,
                private auth: AuthService,

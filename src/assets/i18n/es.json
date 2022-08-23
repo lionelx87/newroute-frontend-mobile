@@ -1,0 +1,134 @@
+{
+    "menu": {
+        "access": "acceder",
+        "exit": "salir"
+    },
+    "settings": {
+        "title": "preferencias",
+        "option1": {
+            "title": "Idioma",
+            "value1": "Español",
+            "value2": "Inglés"
+        }
+    },
+    "access": {
+        "login": {
+            "title": "Ingreso",
+            "form": {
+                "title": "New Route - Ingreso",
+                "email": "Correo",
+                "password": "Contraseña",
+                "rememberme": "¿Olvidó su Contraseña?",
+                "button": "Ingresar"
+            }
+        },
+        "register": {
+            "title": "Registro",
+            "form": {
+                "title": "Crea tu cuenta",
+                "subtitle": "Forma parte de la comunidad Caletense",
+                "name": "Nombre",
+                "email": "Correo",
+                "password": "Contraseña",
+                "confirmationPassword": "Confirme su contraseña",
+                "button": "Registrarme"
+            }
+        },
+        "reset": {
+            "title": "Reseteo Contraseña",
+            "form": {
+                "title": "¿Ha olvidado su contraseña?",
+                "subtitle": "No se preocupe. Sólo tiene que colocar su correo electrónico y le enviaremos un código para restablecer su contraseña",
+                "email": "Correo",
+                "code": "Tengo el código",
+                "button": "Enviar Correo"
+            }
+        },
+        "sendCode": {
+            "title": "Envío Código",
+            "form": {
+                "title": "Código de Reseteo",
+                "subtitle": "Ingrese el código que recibió en su correo electrónico para resetear su contraseña",
+                "code": "Código",
+                "button": "Enviar Código"
+            }
+        },
+        "newPassword": {
+            "title": "Nueva Contraseña",
+            "form": {
+                "title": "Restablezca su contraseña",
+                "subtitle": "Escriba su nueva contraseña y confirmela a continuación. Recuerde que debe ser segura ;)",
+                "password": "Contraseña",
+                "confirmationPassword": "Confirme su contraseña",
+                "button": "Restablecer"
+            }
+        }
+    },
+    "categories": {
+        "title": "Categorías"
+    },
+    "spots": {
+       "reviews": "reseñas",
+       "tour": "Recorrido",
+       "map": "Mapa",
+       "gallery": "Galería",
+       "rate": "valorar",
+       "phone": "No posee",
+       "comments": "Comentarios"
+    },
+    "gallery": {
+        "modal": {
+            "zoomOut": "Alejar",
+            "zoomIn": "Acercar",
+            "close": "Cerrar"
+        }
+    },
+    "myInterests": {
+        "title": "Mis Intereses",
+        "save": "Guardar"
+    },
+    "recommendations": {
+        "title": "Recomendados",
+        "detailPart1": "Recomendado por",
+        "detailPart2": "usuarios"
+    },
+    "valorations": {
+        "title": "Mejor Valorados",
+        "detail": "usuarios"
+    },
+    "tour": {
+        "title": "Mi Recorrido",
+        "priority": {
+            "title": "Prioridad",
+            "modal": {
+                "title": "Seleccione prioridad",
+                "option": {
+                    "normal": "Normal",
+                    "high": "Deseable",
+                    "highest": "Muy Deseable"
+                },
+                "cancel": "Cancelar",
+                "accept": "Aceptar"
+            }
+        },
+        "button": "Iniciar",
+        "travelMode": {
+            "title": "Modo de Recorrido",
+            "option": {
+                "priority": "Por Prioridad",
+                "proximity": "Por Proximidad"
+            },
+            "cancel": "Cancelar",
+            "accept": "Comenzar"
+        }
+    },
+    "registerVisits": {
+        "title": "Registrar Visita",
+        "noSpots": "No encontramos lugares turisticos cercanos",
+        "button": "Guardar"
+    },
+    "visits": {
+        "title": "Visitas",
+        "detail": "Visitó el lugar"
+    }
+}

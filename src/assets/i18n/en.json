@@ -1,0 +1,134 @@
+{
+    "menu": {
+        "access": "access",
+        "exit": "exit"
+    },
+    "settings": {
+        "title": "settings",
+        "option1": {
+            "title": "Language",
+            "value1": "Spanish",
+            "value2": "English"
+        }
+    },
+    "access": {
+        "login": {
+            "title": "Login",
+            "form": {
+                "title": "New Route - Login",
+                "email": "Email",
+                "password": "Password",
+                "rememberme": "Forgot your password?",
+                "button": "Login"
+            }
+        },
+        "register": {
+            "title": "Register",
+            "form": {
+                "title": "Create your account",
+                "subtitle": "Become part of the Caletense community",
+                "name": "Name",
+                "email": "Email",
+                "password": "Password",
+                "confirmationPassword": "Confirm your password",
+                "button": "Register"
+            }
+        },
+        "reset": {
+            "title": "Password Reset",
+            "form": {
+                "title": "Have you forgotten your password?",
+                "subtitle": "Don't worry. Just enter your email address and we'll send you a code to reset your password.",
+                "email": "Email",
+                "code": "I have the code",
+                "button": "Send Email"
+            }
+        },
+        "sendCode": {
+            "title": "Send Code",
+            "form": {
+                "title": "Reset Code",
+                "subtitle": "Enter the code you received in your email to reset your password.",
+                "code": "Code",
+                "button": "Send Code"
+            }
+        },
+        "newPassword": {
+            "title": "New Password",
+            "form": {
+                "title": "Reset your password",
+                "subtitle": "Enter your new password and confirm it below. Remember it must be secure ;)",
+                "password": "Password",
+                "confirmationPassword": "Confirm your password",
+                "button": "Reset"
+            }
+        }
+    },
+    "categories": {
+        "title": "Categories"
+    },
+    "spots": {
+       "reviews": "reviews",
+       "tour": "Tour",
+       "map": "Map",
+       "gallery": "Gallery",
+       "rate": "rate",
+       "phone": "It does not have",
+       "comments": "Comments"
+    },
+    "gallery": {
+        "modal": {
+            "zoomOut": "Zoom Out",
+            "zoomIn": "Zoom In",
+            "close": "Close"
+        }
+    },
+    "myInterests": {
+        "title": "My Interests",
+        "save": "Save"
+    },
+    "recommendations": {
+        "title": "Recommended",
+        "detailPart1": "Recommended by",
+        "detailPart2": "users"
+    },
+    "valorations": {
+        "title": "Best Rated",
+        "detail": "users"
+    },
+    "tour": {
+        "title": "My Tour",
+        "priority": {
+            "title": "Priority",
+            "modal": {
+                "title": "Select priority",
+                "option": {
+                    "normal": "Normal",
+                    "high": "Desirable",
+                    "highest": "Very Desirable"
+                },
+                "cancel": "Cancel",
+                "accept": "Accept"
+            }
+        },
+        "button": "Start",
+        "travelMode": {
+            "title": "Travel Mode",
+            "option": {
+                "priority": "By Priority",
+                "proximity": "By Proximity"
+            },
+            "cancel": "Cancel",
+            "accept": "Start"
+        }
+    },
+    "registerVisits": {
+        "title": "Register Visit",
+        "noSpots": "We did not find any tourist sites nearby",
+        "button": "Save"
+    },
+    "visits": {
+        "title": "Visits",
+        "detail": "You visited the site"
+    }
+}

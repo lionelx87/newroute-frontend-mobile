@@ -1,4 +1,4 @@
-<app-header title="mis intereses"></app-header>
+<app-header title="{{ 'myInterests.title' | translate }}"></app-header>
 
 <ion-content>
   <ion-list>
@@ -11,6 +11,6 @@
 
 <ion-footer>
   <ion-button expand="full" size="large" class="ion-no-margin" (click)="save()">
-      Guardar
+    {{ 'myInterests.save' | translate }}
   </ion-button>
 </ion-footer>

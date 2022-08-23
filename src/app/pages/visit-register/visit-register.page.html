@@ -1,9 +1,9 @@
-<app-header title="registrar visita"></app-header>
+<app-header title="{{ 'registerVisits.title' | translate }}"></app-header>
 
 <ion-content>
   <div *ngIf="!(spots | async)?.length; else spotsList" class="no-visits__container">
     <img src="assets/img/no-visits.png" alt="">
-    <span>No encontramos lugares turisticos cercanos</span>
+    <span>{{ 'registerVisits.noSpots' | translate }}</span>
   </div>
 
   <ng-template #spotsList>
@@ -24,7 +24,7 @@
 
 <ion-footer>
   <ion-button expand="full" size="large" class="ion-no-margin" (click)="register()" [disabled]="disabled">
-    <span *ngIf="!loading">Guardar</span>
+    <span *ngIf="!loading">{{ 'registerVisits.button' | translate }}</span>
     <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
   </ion-button>
 </ion-footer>

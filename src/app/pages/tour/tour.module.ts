@@ -9,6 +9,7 @@ import { TourPageRoutingModule } from './tour-routing.module';
 import { TourPage } from './tour.page';
 import { ComponentsModule } from '../../components/components.module';
 import { PipesModule } from '../../pipes/pipes.module';
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { PipesModule } from '../../pipes/pipes.module';
     IonicModule,
     ComponentsModule,
     PipesModule,
+    TranslateModule,
     TourPageRoutingModule
   ],
   declarations: [TourPage]

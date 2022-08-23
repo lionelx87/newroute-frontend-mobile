@@ -8,6 +8,7 @@ import { AccessPageRoutingModule } from './access-routing.module';
 
 import { AccessPage } from './access.page';
 import { ComponentsModule } from '../../components/components.module';
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     ComponentsModule,
     IonicModule,
+    TranslateModule,
     AccessPageRoutingModule
   ],
   declarations: [AccessPage]

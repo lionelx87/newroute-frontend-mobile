@@ -40,7 +40,7 @@
     </ion-row>
 
     <ion-row class="ion-justify-content-end ion-align-items-center title-row">
-      <span>({{ spot.valoration.users }} reseñas)</span>
+      <span>({{ spot.valoration.users }} {{ 'spots.reviews' | translate }})</span>
     </ion-row>
 
     
@@ -51,7 +51,7 @@
         <ion-button class="btn-option" fill="clear" (click)="addToTour()">
           <div>
             <ion-icon size="large" name="add-outline"></ion-icon>
-            <span class="txt-option">Recorrido</span>
+            <span class="txt-option">{{ 'spots.tour' | translate }}</span>
           </div>
         </ion-button>
       </ion-col>
@@ -60,7 +60,7 @@
         <ion-button class="btn-option" fill="clear" (click)="viewMap()">
           <div>
             <ion-icon size="large" name="map-outline"></ion-icon>
-            <span class="txt-option">mapa</span>
+            <span class="txt-option">{{ 'spots.map' | translate }}</span>
           </div>
         </ion-button>
       </ion-col>
@@ -69,7 +69,7 @@
         <ion-button class="btn-option" fill="clear" (click)="viewGallery()">
           <div>
             <ion-icon size="large" name="images-outline"></ion-icon>
-            <span class="txt-option">galería</span>
+            <span class="txt-option">{{ 'spots.gallery' | translate }}</span>
           </div>
         </ion-button>
       </ion-col>
@@ -78,7 +78,7 @@
         <ion-button *ngIf="userLogged" class="btn-option" fill="clear" (click)="rate($event)">
           <div>
             <ion-icon size="large" [name]="checkRate"></ion-icon>
-            <span class="txt-option">valorar</span>
+            <span class="txt-option">{{ 'spots.rate' | translate }}</span>
           </div>
         </ion-button>
       </ion-col>
@@ -98,7 +98,7 @@
           </ion-item>
           <ion-item>
             <ion-icon name="call-outline" slot="start"></ion-icon>
-            <ion-label>{{ spot.phones[0]? spot.phones[0].number : 'No Posee' }}</ion-label>
+            <ion-label>{{ spot.phones[0]? spot.phones[0].number : 'spots.phone' | translate }}</ion-label>
           </ion-item>
         </ion-list>
 
@@ -110,9 +110,9 @@
 </ion-content>
 
 <ion-footer>
-  <ion-button expand="full" size="large" class="ion-no-margin" (click)="openComments()">
+  <ion-button expand="full" size="large" class="ion-no-margin" [disabled]="!hasComments" (click)="openComments()">
     <ion-icon slot="start" name="chatbubbles-outline"></ion-icon>
-    <ion-label class="ion-text-capitalize">Comentarios ( {{ spot.comments.length }} )</ion-label>
+    <ion-label class="ion-text-capitalize">{{ 'spots.comments' | translate }} ( {{ spot.comments.length }} )</ion-label>
   </ion-button>
 </ion-footer>
 

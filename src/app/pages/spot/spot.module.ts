@@ -9,6 +9,7 @@ import { SpotPageRoutingModule } from './spot-routing.module';
 import { SpotPage } from './spot.page';
 import { PipesModule } from '../../pipes/pipes.module';
 import { ComponentsModule } from '../../components/components.module';
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { ComponentsModule } from '../../components/components.module';
     IonicModule,
     PipesModule,
     ComponentsModule,
+    TranslateModule,
     SpotPageRoutingModule
   ],
   declarations: [SpotPage]

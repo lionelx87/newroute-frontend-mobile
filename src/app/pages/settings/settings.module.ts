@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CategoriesPageRoutingModule } from './categories-routing.module';
+import { SettingsPageRoutingModule } from './settings-routing.module';
 
-import { CategoriesPage } from './categories.page';
+import { SettingsPage } from './settings.page';
 import { ComponentsModule } from '../../components/components.module';
 import { TranslateModule } from "@ngx-translate/core";
 
@@ -17,8 +17,8 @@ import { TranslateModule } from "@ngx-translate/core";
     IonicModule,
     ComponentsModule,
     TranslateModule,
-    CategoriesPageRoutingModule
+    SettingsPageRoutingModule
   ],
-  declarations: [CategoriesPage]
+  declarations: [SettingsPage]
 })
-export class CategoriesPageModule {}
+export class SettingsPageModule {}

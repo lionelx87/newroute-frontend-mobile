@@ -12,6 +12,8 @@ import { ComponentsModule } from '../../components/components.module';
 
 import { PipesModule } from '../../pipes/pipes.module';
 
+import { TranslateModule } from "@ngx-translate/core";
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +21,7 @@ import { PipesModule } from '../../pipes/pipes.module';
     IonicModule,
     ComponentsModule,
     PipesModule,
+    TranslateModule,
     VisitsPageRoutingModule
   ],
   declarations: [VisitsPage]

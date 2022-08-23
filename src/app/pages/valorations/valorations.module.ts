@@ -9,6 +9,7 @@ import { ValorationsPageRoutingModule } from './valorations-routing.module';
 import { ValorationsPage } from './valorations.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     IonicModule,
     ComponentsModule,
     PipesModule,
+    TranslateModule,
     ValorationsPageRoutingModule
   ],
   declarations: [ValorationsPage]

@@ -3,6 +3,7 @@ import { Observable, of } from "rxjs";
 import { CategoryService } from "../../services/category.service";
 import { Category } from "../../interfaces/category.interface";
 import { InterestService } from "src/app/services/interest.service";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: "app-categories",
@@ -14,8 +15,13 @@ export class CategoriesPage implements OnInit {
 
   constructor(
     private categoriesServices: CategoryService,
-    private interestService: InterestService
+    private interestService: InterestService,
+    private translateService: TranslateService
   ) {}
+
+  get lang(): string {
+    return this.translateService.currentLang;
+  }
 
   async ngOnInit() {
     const interests: number[] = (await this.interestService.get()) ?? [];

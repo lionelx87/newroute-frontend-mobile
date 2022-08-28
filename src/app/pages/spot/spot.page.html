@@ -110,7 +110,7 @@
 </ion-content>
 
 <ion-footer>
-  <ion-button expand="full" size="large" class="ion-no-margin" [disabled]="!hasComments" (click)="openComments()">
+  <ion-button expand="full" size="large" class="ion-no-margin" [disabled]="!hasComments && !userLogged" (click)="openComments()">
     <ion-icon slot="start" name="chatbubbles-outline"></ion-icon>
     <ion-label class="ion-text-capitalize">{{ 'spots.comments' | translate }} ( {{ spot.comments.length }} )</ion-label>
   </ion-button>

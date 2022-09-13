@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   app: 'NewRoute',
   version: 'v0.9',
-  server: 'http://newroute.backend:8000',
-  backend: 'http://newroute.backend:8000/api',
+  server: 'http://newroute.backend:8080',
+  backend: 'http://newroute.backend:8080/api',
   endpoints: {
     categories: '/categories',
   },

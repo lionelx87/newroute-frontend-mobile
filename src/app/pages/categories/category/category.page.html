@@ -7,7 +7,7 @@
       <ion-col *ngFor="let spot of spots | async" size="12" size-md="6" size-lg="4">
         
         <ion-card button="true" (click)="openSpot(spot)" >
-          <img [src]="spot.images[0] | composeUrl" alt="">
+          <img [src]="spot.images.length > 0 ? (spot.images[0] | composeUrl) : 'assets/img/no-image-spot.jpg' " alt="">
           <ion-card-header>
             <ion-card-subtitle>{{ category }}</ion-card-subtitle>
             <ion-card-title>{{ spot.name }}</ion-card-title>

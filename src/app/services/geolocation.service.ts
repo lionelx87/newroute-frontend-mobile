@@ -20,14 +20,10 @@ export class GeolocationService {
   directionsDisplay = new google.maps.DirectionsRenderer();
 
   constructor() {
-    this.realPosition();
-    // const myPosition = { lat: -46.453193, lng: -67.529532 };
-    // const place = { lat: -46.447752, lng: -67.522622 };
-    // const place = { lat: -46.441774, lng: -67.517348 };
-    // console.log('probandooo: ', this.haversineDistance(myPosition, place));
+    // this.realPosition();
   }
 
-  private async realPosition() {
+   async realPosition() {
     const rta = await Geolocation.getCurrentPosition();
     this.position = new google.maps.LatLng(
       rta.coords.latitude,

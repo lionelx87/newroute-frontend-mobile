@@ -3,6 +3,8 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Spot } from '../../interfaces/spot.interface';
 import { GeolocationService } from '../../services/geolocation.service';
 import { ModalController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
+
 
 
 @Component({
@@ -18,11 +20,16 @@ export class MapPage implements OnInit {
   @ViewChild('map') mapRef: ElementRef;
   optimizedRoute: boolean;
 
+  loading: HTMLIonLoadingElement;
 
   constructor( 
     private geolocation: GeolocationService,
-    private modalCtrl: ModalController
-  ) { this.optimizedRoute = true; }
+    private modalCtrl: ModalController,
+    private loadingCtrl: LoadingController
+  ) { 
+    this.optimizedRoute = true; 
+    this.createLoading();
+  }
 
   ngOnInit() {
   }
@@ -31,9 +38,18 @@ export class MapPage implements OnInit {
     this.loadMap();
   }
 
+  async createLoading() {
+    this.loading = await this.loadingCtrl.create({
+      message: 'Calculando recorrido...',
+      spinner: 'circles',
+    });
+  }
+
   async loadMap() {
     this.geolocation.setMapRef(this.mapRef);
-    this.geolocation.setPosition({ lat: -46.453193, lng: -67.529532 });
+    this.loading.present();
+    await this.geolocation.realPosition();
+    this.loading.dismiss();
     this.geolocation.initMap(16);
 
     this.mode === Mode.BY_PRIORITY ? this.sortByPriority() : this.sortByProximity();

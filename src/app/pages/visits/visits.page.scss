@@ -43,3 +43,15 @@ ion-slides {
     font-family: 'DynaPuff', cursive;
     color: #333;
   }
+
+.no-visits__container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 200px;
+  }
+
+}

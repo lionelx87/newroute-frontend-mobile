@@ -1,14 +1,20 @@
 <app-header title="{{ 'visits.title' | translate }}"></app-header>
 
-<ion-content>
-  <ion-slides pager="true" [options]="slideOpts">
-    <ion-slide *ngFor="let spot of spots | async">
-      <div class="slide">
-        <img [src]="spot.images[0] | composeUrl" />
-        <h2 class="visit__title">{{ spot.name }}</h2>
-        <p>{{ spot.description }}</p>
-        <p class="visit-date__text">{{ 'visits.detail' | translate }} {{ spot.diff_for_humans }}</p>
-      </div>
-    </ion-slide>
-  </ion-slides>
+<ion-content class="background-screen">
+  <div *ngIf="!(spots | async)?.length; else visitList" class="no-visits__container">
+    <img src="assets/img/zero.png" alt="">
+  </div>
+
+  <ng-template #visitList>
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let spot of spots | async">
+        <div class="slide">
+          <img [src]="spot.images[0] | composeUrl" />
+          <h2 class="visit__title">{{ spot.name }}</h2>
+          <p>{{ spot.description }}</p>
+          <p class="visit-date__text">{{ 'visits.detail' | translate }} {{ spot.diff_for_humans }}</p>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ng-template>
 </ion-content>

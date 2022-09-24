@@ -90,11 +90,11 @@
     "recommendations": {
         "title": "Recommended",
         "detailPart1": "Recommended by",
-        "detailPart2": "users"
+        "detailPart2": "user/s"
     },
     "valorations": {
         "title": "Best Rated",
-        "detail": "users"
+        "detail": "user/s"
     },
     "tour": {
         "title": "My Tour",

@@ -45,4 +45,11 @@ ion-grid {
     }
 }
 
+.spot__address {
+    text-overflow: inherit;
+    overflow-x: auto;
 
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

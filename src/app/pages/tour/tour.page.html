@@ -13,7 +13,7 @@
 
             <ion-item >
                 <ion-thumbnail slot="start">
-                    <img [src]="spot.images[0] | composeUrl" />
+                    <img [src]="spot.images.length > 0 ? (spot.images[0] | composeUrl) : 'assets/img/no-image-spot.jpg' " />
                 </ion-thumbnail>
                 <ion-grid fixed>
                     <ion-row>

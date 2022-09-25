@@ -69,7 +69,7 @@
       </ion-col>
 
       <ion-col size="3" class="btn-box">
-        <ion-button class="btn-option" fill="clear" (click)="viewGallery()">
+        <ion-button class="btn-option" fill="clear" (click)="viewGallery()" [disabled]="spot.images.length <= 0" >
           <div>
             <ion-icon size="large" name="images-outline"></ion-icon>
             <span class="txt-option">{{ 'spots.gallery' | translate }}</span>

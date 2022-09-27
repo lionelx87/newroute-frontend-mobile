@@ -19,11 +19,9 @@ export class GeolocationService {
   directionsService = new google.maps.DirectionsService();
   directionsDisplay = new google.maps.DirectionsRenderer();
 
-  constructor() {
-    // this.realPosition();
-  }
+  constructor() { }
 
-   async realPosition() {
+  async realPosition() {
     const rta = await Geolocation.getCurrentPosition();
     this.position = new google.maps.LatLng(
       rta.coords.latitude,
@@ -93,12 +91,12 @@ export class GeolocationService {
     );
   }
 
-  haversineDistance(origin: Point, destiny: Point): number {
+  haversineDistance(destiny: Point): number {
     const R = 3958.8;
-    const rlat1 = origin.lat * (Math.PI / 180);
+    const rlat1 = this.position.lat() * (Math.PI / 180);
     const rlat2 = destiny.lat * (Math.PI / 180);
     const difflat = rlat2 - rlat1;
-    const difflon = (destiny.lng - origin.lng) * (Math.PI / 180);
+    const difflon = (destiny.lng - this.position.lng()) * (Math.PI / 180);
     const distance =
       2 *
       R *

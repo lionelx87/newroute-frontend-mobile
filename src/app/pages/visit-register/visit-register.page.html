@@ -1,7 +1,7 @@
 <app-header title="{{ 'registerVisits.title' | translate }}"></app-header>
 
 <ion-content>
-  <div *ngIf="!(spots | async)?.length; else spotsList" class="no-visits__container">
+  <div *ngIf="!(spots | async)?.length && getData; else spotsList" class="no-visits__container">
     <img src="assets/img/no-visits.png" alt="">
     <span>{{ 'registerVisits.noSpots' | translate }}</span>
   </div>

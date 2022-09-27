@@ -8,6 +8,7 @@ import { GeolocationService } from "src/app/services/geolocation.service";
 import { MessageService } from "src/app/services/message.service";
 import { SpotService } from "src/app/services/spot.service";
 import { VisitService } from "src/app/services/visit.service";
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: "app-visit-register",
@@ -17,6 +18,8 @@ import { VisitService } from "src/app/services/visit.service";
 export class VisitRegisterPage implements OnInit {
   spots: Observable<Spot[]>;
   loading: boolean = false;
+  getData: boolean = false;
+  loader: HTMLIonLoadingElement;
 
   // TODO: remote spot.disabled
   constructor(
@@ -24,18 +27,23 @@ export class VisitRegisterPage implements OnInit {
     private geoService: GeolocationService,
     private visitService: VisitService,
     private route: Router,
-    private msgService: MessageService
-  ) {}
+    private msgService: MessageService,
+    private loadingCtrl: LoadingController
+  ) {
+    this.createLoading();
+  }
 
   async ngOnInit() {
-    this.spotService.getSpots().subscribe((spots) => {
-      // location spoofing
-      const myPosition: Point = { lat: -46.453193, lng: -67.529532 };
+    this.spotService.getSpots().subscribe(async (spots) => {
+      this.loader.present();
+      await this.geoService.realPosition();
+      this.getData = true;
+      this.loader.dismiss();
       this.spots = of(
         spots
           .filter((spot) =>
             this.geoService.inProximity(
-              this.geoService.haversineDistance(myPosition, {
+              this.geoService.haversineDistance({
                 lat: Number(spot.latitude),
                 lng: Number(spot.longitude),
               })
@@ -47,6 +55,13 @@ export class VisitRegisterPage implements OnInit {
             return spot;
           })
       );
+    });
+  }
+
+  async createLoading() {
+    this.loader = await this.loadingCtrl.create({
+      message: 'Buscando puntos turísticos...',
+      spinner: 'circles',
     });
   }
 
